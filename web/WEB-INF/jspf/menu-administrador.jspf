@@ -1,0 +1,96 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<link rel="stylesheet" href="estilos/estilos-plantilla.css">
+<nav class="top-bar hide-for-small" style="">
+    
+    <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+            <h1>
+                <a href="http://www.cuscatancingo.gob.sv">
+                    Alcaldia Municipal de Cuscatancingo
+                </a>
+            </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li><a href="docs/manual-dsi.pdf" target="_blank">Ayuda</a></li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Actividades</a>
+                <ul class="dropdown">
+                    <li><a href="CorrelativoBitacoraActividades">Bitacora Actividades</a></li>
+                    <li><a href="ConsultarBitacora.jsp">Consultar Bitacoras</a></li>
+                    <li><a href="CodigoActividad">Registrar Actividad</a></li>
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Programaciones</a>
+                <ul class="dropdown">
+                    <li><a href="CorrelativoProgramacionLocalServlet">Registrar Programacion Local</a></li>
+                    <li><a href="ConsultarProgramacionLocal.jsp">Consultar Programaciones Locales</a></li>
+                    <li><a href="ProgramacionesExternas.jsp">Programaciones Externas</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Combustible</a>
+                <ul class="dropdown">
+                    <li><a href="CorrelativoBitacoraCombustibleServlet">Registrar Bitacora</a></li>
+                    <li><a href="ConsultarBitacorasCombustible.jsp">Consultar Bitacoras</a></li>
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Motoristas</a>
+                <ul class="dropdown">
+                    <li><a href="InsertarMotorista.jsp">Registrar motoristas</a></li>
+                    <li><a href="ConsultarMotorista.jsp">Consultar motoristas</a></li>
+                    <li><a href="EliminarMotorista.jsp">Eliminar motoristas</a></li>
+                    <li><a href="ModificarMotorista.jsp">Modificar motoristas</a></li>                  
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Unidades</a>
+                <ul class="dropdown">
+                    <li><a href="RegistrarUnidad.jsp">Registrar Unidad</a></li>
+                    <li><a href="ControladorConsultaUnidad.jsp">Consultar Unidades</a></li>
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Solicitudes</a>
+                <ul class="dropdown">
+                    <li><a href="insertar.jsp">Registrar solicitud</a></li>
+                    <li><a href="consultar.jsp">Consultar solicitud</a></li>
+                    <li><a href="eliminar.jsp">Eliminar solicitudes</a></li>
+                    <li><a href="actualizar.jsp">Modificar solicitud</a></li>                  
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Inicio</a>
+                <ul class="dropdown">
+                    <li><a href="vistaAdministrador.jsp">Menu Principal</a></li>
+                    <li><a href="RegistrarUsuario.jsp">Registrar Usuario</a></li>
+                    <li><a href="GestionarUsuarios.jsp">Gestionar Usuario</a></li>
+                    <li><a href="CerrarSesion.jsp">Cerrar Sesion</a></li>                  
+                </ul>
+            </li>
+        </ul>
+    </section>
+</nav>
