@@ -25,6 +25,9 @@
                 <img src="images/escudo.jpg" alt="" />
                 <img src="images/escudo.jpg" alt="" />
                 <img src="images/escudo.jpg" alt="" />
+                
+                <%-- he agregado este comentario :D --%>
+                
             </div>
         </div>
 
