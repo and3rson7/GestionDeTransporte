@@ -1,0 +1,41 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="estilos/estilos-plantilla.css">
+<nav class="top-bar hide-for-small" style="">
+    <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+            <h1>
+                <a href="http://www.cuscatancingo.gob.sv">
+                    Alcaldia Municipal de Cuscatancingo
+                </a>
+            </h1>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li><a href="#">Ayuda</a></li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Actividades</a>
+                <ul class="dropdown">
+                    <li><a href="BitacoraActividadesVM.jsp">Bitacora Actividades</a></li>
+                    <li><a href="ConsultarBitacoraVM.jsp">Consultar Bitacoras</a></li>
+                    <li><a href="RegistrarActividadesVM.jsp">Registrar Actividad</a></li>
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Inicio</a>
+                <ul class="dropdown">
+                    <li><a href="vistaMotorista.jsp">Menu Principal</a></li>            
+                    <li><a href="CerrarSesion.jsp">Cerrar Sesion</a></li>                  
+                </ul>
+            </li>              
+        </ul>
+    </section>
+</nav> 

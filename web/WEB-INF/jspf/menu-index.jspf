@@ -1,0 +1,39 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="estilos/style.css">
+<link rel="stylesheet" href="estilos/foundation.css">
+<nav class="top-bar hide-for-small" style="">
+    
+    <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+            <h1>
+                <a href="http://www.cuscatancingo.gob.sv">
+                    Alcaldia Municipal de Cuscatancingo
+                </a>
+            </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li><a href="#">Ayuda</a></li>
+
+            <li class="divider hide-for-small"></li>
+            <li class="has-dropdown">
+                <a href="#">Solicitudes</a>
+                <ul class="dropdown">
+                    <li><a href="insertar.jsp">Registrar solicitud</a></li>
+                    <li><a href="consultar.jsp">Consultar solicitud</a></li>
+                </ul>
+            </li>
+
+            <li class="divider hide-for-small"></li>
+            <li>
+                <a href="Login.jsp">Iniciar Sesión</a>
+            </li>
+        </ul>
+    </section>
+</nav>

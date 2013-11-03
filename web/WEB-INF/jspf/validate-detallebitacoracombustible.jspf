@@ -1,0 +1,49 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<link rel="stylesheet" href="jquery-form-validate/jquery.validate.css">
+<script type="text/javascript" src="jquery-form-validate/jquery.validate.js"></script>
+
+<script type="text/javascript">
+        jQuery(function(){
+            jQuery("#correlativo").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+
+            jQuery("#vale").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#placasSelect").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#equiposSelect").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#motoristasSelect").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#tipo_combustible").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#precio_galon").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    error_class:"ValidationErrorsBitacora"
+            });
+            
+            jQuery("#total_galones").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+        });
+</script>
