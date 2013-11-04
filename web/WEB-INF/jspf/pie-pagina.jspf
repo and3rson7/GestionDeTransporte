@@ -1,6 +1,18 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
+<style type="text/css">
+    body { padding-bottom: 70px; }
+</style>
 
-<div id="footer" style="margin-top: 0px; color: white; display: block; font-size: 13px; font-weight: bold; height: 45px; line-height: 45px; padding: 0 15px;">
-    <center>&copy; Copyright 2013</center>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  
+  <p class="navbar-text pull-left">Bienvenid@ Invitad@ </p>
+  <p class="navbar-text pull-right">&copy; Copyright 2013</p>
+</nav>
