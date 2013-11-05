@@ -164,12 +164,15 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`nivel`, `usuario`, `Nombre`, `contraseña`) VALUES
-(4, '04', 'motorista', '798f861ee74f6ff83ccbc9c53b419941d0080e50'),
-(23232323, '3232332', '322332', '9d61ba84065fc83956cdfc63e49bc7a9d21d8665'),
+(1, 'Nelsonadmin', 'Nelson Marroquin', '536c0b339345616c1b33caf454454d8b8a190d6c'),
+(2, 'Joseger', 'Jose Alexander', '5718f7f8665e717c0870620567c6415e13761141'),
+(3, 'Rogeliosubge', 'Rogelio Lopez', '7dee5aff3385805a5db869b29512488227353d58'),
+(4, 'Rafaelmot', 'Rafael Campos', '824cfa92504779259757881b889c2a0edfb2f9cc'),
 (1, 'Nelsonadmin', 'Nelson Marroquin', '9dbf7c1488382487931d10235fc84a74bff5d2f4'),
 (3, 'Rogeliosubge', 'Rogelio Lopez', 'a07a01fc585368d7ea359dffaf595fe259d0d6ed'),
-(2, '02', 'gerente', 'bcac9d1d8eab3713ae489224d0130c9468e7a0e3'),
-(1, '01', '01', 'ddfe163345d338193ac2bdc183f8e9dcff904b43');
+(5, 'Oscarnorm', 'Oscar Martinez', 'd8fd19d11989a64da26d7a0f4d23f2a1f21ce010'),
+(1, '01', '01', 'ddfe163345d338193ac2bdc183f8e9dcff904b43'),
+(2, 'Joseger', 'Jose 	Alexander Rivas', 'e0ffb90b074691c42ebd7b3cc39771b344c0083b');
 
 -- --------------------------------------------------------
 
@@ -379,3 +382,42 @@ ALTER TABLE `detallebitacoracombustible`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Estructura de tabla para la tabla `filtro`
+--
+
+CREATE TABLE IF NOT EXISTS `filtro` (
+  `Equipo` int(11) NOT NULL DEFAULT '0',
+  `Aceite` varchar(50) DEFAULT NULL,
+  `Aire` varchar(100) DEFAULT NULL,
+  `Combustible` varchar(50) DEFAULT NULL,
+  `Diesel` varchar(45) DEFAULT NULL,
+  `Estado` varchar(15) DEFAULT 'Disponible',
+  `Fecha_Revision` varchar(10) DEFAULT '27/10/2013',
+  `Codigo_Aceite` varchar(45) NOT NULL,
+  PRIMARY KEY (`Equipo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Volcado de datos para la tabla `filtro`
+--
+
+INSERT INTO `filtro` (`Equipo`, `Aceite`, `Aire`, `Combustible`, `Diesel`, `Estado`, `Fecha_Revision`, `Codigo_Aceite`) VALUES
+(1, 'PH', 'JA-705', 'P-4160', '', 'Disponible', '31/1/2014', 'A2/B2'),
+(5, 'PH', 'r', '', '', 'No Disponible', '29/4/2014', ''),
+(6, 'PH', '', '', '', 'Disponible', '29/4/2014', ''),
+(11, 'PH 2849A', 'BA-K12', '', 'F-120', 'Disponible', '29/1/2014', ''),
+(12, 'MB 22090', 'OK 72C', 'FO 5001', '', 'Disponible', '29/1/2014', ''),
+(15, 'PH 3593', 'JA-705', 'P-4160', '', 'Disponible', '29/1/2014', ''),
+(16, 'C-294', 'A 6156B', '', 'F 65166', 'Disponible', '29/1/2014', ''),
+(17, 'PH', 'JA-705', 'P-4160', '', 'Disponible', '29/4/2014', ''),
+(18, 'PH', '', 'P-4102', '', 'Disponible', '29/4/2014', ''),
+(19, 'PH 49A', '', '', '33358/F 50359', 'Disponible', '29/1/2014', ''),
+(20, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(21, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(24, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(25, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(26, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(27, '', '', '', '', 'Disponible', '29/1/2014', ''),
+(29, 'PH', '', '', 'P-4160', 'No Disponible', '29/4/2014', '');
