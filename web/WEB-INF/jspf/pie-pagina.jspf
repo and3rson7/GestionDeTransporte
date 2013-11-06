@@ -13,6 +13,6 @@
     </button>
   </div>
   
-  <p class="navbar-text pull-left">Bienvenid@ Invitad@ </p>
+  <p class="navbar-text pull-left">Bienvenid@</p>
   <p class="navbar-text pull-right">&copy; Copyright 2013</p>
 </nav>
