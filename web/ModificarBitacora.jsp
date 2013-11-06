@@ -45,15 +45,28 @@ ResultSet tablaResultado = null;
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mes
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <input type="text" maxlength="10" name="mes" required value="<% out.println(tablaResultado.getString(2));%>" 
-                  placeholder="Mes" onkeypress="return permite(event, 'carac')"></p>
+           <select name="mes" required>
+                    <option value="">Seleccionar mes</option>
+                    <option value="Enero" >Enero</option>
+                    <option value="Febrero">Febrero</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Mayo">Mayo</option>
+                    <option value="Junio">Junio</option>
+                    <option value="Julio">Julio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Septiembre">Septiembre</option>
+                    <option value="Octubre">Octubre</option>
+                    <option value="Noviembre">Noviembre</option>
+                    <option value="Diciembre">Diciembre</option>
+           </select></p>
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Año   
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <input type="text" name="year" maxlength="4" min="2000" max="2100" required value="<% out.println(tablaResultado.getString(3));%>" 
+           <input type="number" name="year" maxlength="4" min="2000" max="2100" required value="<% out.println(tablaResultado.getString(3));%>" 
                   placeholder="Año" onkeypress="return permite(event, 'num')"></p>
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equipo 
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <%
     }
     tablaResultado.close();//cerramos la conexion y listo ya tenemos los registros a modificar

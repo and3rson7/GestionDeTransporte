@@ -64,7 +64,23 @@
           Km de retorno <input type="number" min="0" name="kmretorno" required placeholder="Km de retorno" onkeypress="return permite(event, 'num')">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           Km utilizados <input type="number" name="kmutilizados" required min="0" placeholder="Kmutilizados" onkeypress="return permite(event, 'num')"</p>
-          
+       
+     <%
+     Class.forName("com.mysql.jdbc.Driver").newInstance();
+     conexion =DriverManager.getConnection(ruta,user,clave);
+     Sentencias = conexion.createStatement();
+     tabla = Sentencias.executeQuery("Select * From solicitudtransporte where estado='Aprobada' ");
+     %>
+       <p>Codigo de la solicitud
+            <select id="Field1" name="solicitud" required>
+            <option value=""></option> 
+            <%
+            while(tabla.next()){
+            out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
+            }                     
+                     %> 
+            </select>
+       
        <p>Objetivo de la Mision
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -76,23 +92,8 @@
          <input type="text" name="lugar" maxlength="50" required value="" 
                                 placeholder="Lugar de la mision" onKeyPress="return permite(event, 'num_car')" >
        </p>
-     <%
-     Class.forName("com.mysql.jdbc.Driver").newInstance();
-     conexion =DriverManager.getConnection(ruta,user,clave);
-     Sentencias = conexion.createStatement();
-     tabla = Sentencias.executeQuery("Select * From solicitudtransporte");
-     %>
-       <p>Codigo de la solicitud
-            <select id="Field1" name="solicitud" required>
-            <option value=""></option> 
-            <%
-            while(tabla.next()){
-            out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
-            }                              
-                     %> 
-            </select>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+       <br>   
      <%
      Class.forName("com.mysql.jdbc.Driver").newInstance();
      conexion =DriverManager.getConnection(ruta,user,clave);

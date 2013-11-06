@@ -39,11 +39,8 @@
         pst = connection.prepareStatement(sql);
         //out.println(sql);
         
-        pst.execute();  %>
-        <script type="text/javascript" >
-         alert(" Bitacora Guardada Exitosamente "); 
-         </script>
-    <%    connection.close();
+        pst.execute();  
+        connection.close();
         
     } catch (Exception ex) {
     %>
@@ -54,3 +51,16 @@
     }
     pageContext.include("BitacoraActividades.jsp");
 %>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Mensaje</title>
+    </head>
+    <body>
+        <script type="text/javascript" >
+            alert("Bitacora Guardada con Exito");
+        </script>      
+    </body>
+</html>

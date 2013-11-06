@@ -27,9 +27,23 @@
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mes
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <input type="text" maxlength="10" name="mes" required value="" placeholder="Mes" onkeypress="return permite(event, 'carac')"></p>
+        <select name="mes" required>
+                    <option value="">Seleccionar mes</option>
+                    <option value="Enero" >Enero</option>
+                    <option value="Febrero">Febrero</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Mayo">Mayo</option>
+                    <option value="Junio">Junio</option>
+                    <option value="Julio">Julio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Septiembre">Septiembre</option>
+                    <option value="Octubre">Octubre</option>
+                    <option value="Noviembre">Noviembre</option>
+                    <option value="Diciembre">Diciembre</option>
+        </select></p>
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Año   
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <input type="number" name="year" maxlength="4" min="2000" max="2100" required value="" placeholder="Año" onkeypress="return permite(event, 'num')"></p>
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equipo 
@@ -48,12 +62,12 @@
      tabla = Sentencias.executeQuery("Select * From unidad");
      %>
         <td><select name="equipo" >
-        <option value=""></option> 
+        <option value=""></option>
         <%
         while(tabla.next()){
         out.print("<option value='"+tabla.getString(2)+"'>"+tabla.getString(2)+"</option>");
         }                              
-                 %> 
+        %> 
         </select></td>
             
        <p class="submit"><input type="submit" name="commit" value="Guardar Bitacora"></p>        

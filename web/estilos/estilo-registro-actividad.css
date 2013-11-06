@@ -97,17 +97,51 @@ body {
   margin: 20px 0 0;
 }
 .RegistrarBitacora input[type=number]{
-	width: 100px;        
+  width: 149px; 
+  margin: 5px; 
+  height: 24px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 2px;
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);   
+}
+.RegistrarBitacora input[type=number]:focus{
+  border-color: #7dc9e2;
+  outline-color: #dceefc;
+  outline-offset: 0;     
 }
 .RegistrarBitacora input[type=submit]{
     margin-left: 155px;
 }
 
 .RegistrarBitacora select{
-	width: 105px;        
+  width: 150px; 
+  margin: 5px; 
+  height: 24px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 2px;
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.RegistrarBitacora select:focus{
+  border-color: #7dc9e2;
+  outline-color: #dceefc;
+  outline-offset: 0;
 }
 .Registrar select{
-	width: 105px;        
+	width: 105px;
+        
 }
 
 .Registrar p:first-child {
@@ -180,7 +214,7 @@ input[type=submit] {
   background-image: -webkit-linear-gradient(top, #edf5f8, #cde5ef);
   background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
   background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
-  background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+  background-image: linear-gradient( #edf5f8, #cde5ef);
   -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
 }
