@@ -3,7 +3,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 	
-<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
+
 
 <!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml">

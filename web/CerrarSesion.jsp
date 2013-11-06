@@ -17,7 +17,7 @@
 
     request.getSession().removeAttribute("usuario");
     session.invalidate();
-    response.sendRedirect("Login.jsp");
+    response.sendRedirect("index.jsp");
 
     //<jsp:forward page="Login.jsp"/>
 %>
