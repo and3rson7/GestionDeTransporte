@@ -13,6 +13,10 @@
     </button>
   </div>
   
-  <p class="navbar-text pull-left">Bienvenid@</p>
+  <% if(request.getSession().getAttribute("rol") != null){ %>
+    <p class="navbar-text pull-left">Bienvenid@ <%= request.getSession().getAttribute("rol") %> <%=request.getSession().getAttribute("usuario") %></p>
+  <% } else { %>
+    <p class="navbar-text pull-left">Bienvenid@ Invitad@</p>
+  <% } %>
   <p class="navbar-text pull-right">&copy; Copyright 2013</p>
 </nav>

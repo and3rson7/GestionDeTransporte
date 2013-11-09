@@ -138,15 +138,14 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`nivel`, `usuario`, `Nombre`, `contraseña`) VALUES
-(1, 'Nelsonadmin', 'Nelson Marroquin', '536c0b339345616c1b33caf454454d8b8a190d6c'),
-(2, 'Joseger', 'Jose Alexander', '5718f7f8665e717c0870620567c6415e13761141'),
-(3, 'Rogeliosubge', 'Rogelio Lopez', '7dee5aff3385805a5db869b29512488227353d58'),
-(4, 'Rafaelmot', 'Rafael Campos', '824cfa92504779259757881b889c2a0edfb2f9cc'),
-(1, 'Nelsonadmin', 'Nelson Marroquin', '9dbf7c1488382487931d10235fc84a74bff5d2f4'),
-(3, 'Rogeliosubge', 'Rogelio Lopez', 'a07a01fc585368d7ea359dffaf595fe259d0d6ed'),
-(5, 'Oscarnorm', 'Oscar Martinez', 'd8fd19d11989a64da26d7a0f4d23f2a1f21ce010'),
+(4, 'rafaelmotorista', 'Rafael Leiva', '1fab0c408e1a2dc51efb6614f5d871a287ed72a6'),
+(3, '03', '03', '3ea6c91e241f256e5e3a88ebd647372022323a53'),
+(3, 'rogeliosubgerente', 'Rogelio Guardado', '70647940537dffd0357aa7c9c42592195a8f68d9'),
+(4, '04', '04', '798f861ee74f6ff83ccbc9c53b419941d0080e50'),
+(2, 'pablogerente', 'Pablo Campos', 'b46836ff39add057d53db3df69c1a82b5290ce17'),
+(2, '02', '02', 'bcac9d1d8eab3713ae489224d0130c9468e7a0e3'),
 (1, '01', '01', 'ddfe163345d338193ac2bdc183f8e9dcff904b43'),
-(2, 'Joseger', 'Jose 	Alexander Rivas', 'e0ffb90b074691c42ebd7b3cc39771b344c0083b');
+(1, 'nelsonadmin', 'Nelson Marroquin', 'e07e298756aedc51c85c2ac16dc00d35abb93b64');
 
 -- --------------------------------------------------------
 
