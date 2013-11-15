@@ -3,7 +3,6 @@
 
 <%@ include file="menu-administrador.jspf" %>
 
-<script type="text/javascript" src="maskedinput/jquery.maskedinput.js"></script>
 <script type="text/javascript" language="javascript" src="datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="datatables/media/js/dataTables.bootstrap.js"></script>
 
@@ -38,7 +37,7 @@
             },
 
             "sScrollX": '100%',
-            "sScrollXInner": "3500px",
+            "sScrollXInner": "2000px",
             "bScrollCollapse": true,
             "bAutoWidth": false,
 
@@ -47,21 +46,8 @@
                 {"sWidth": "200px"},
                 {"sWidth": "200px"},
                 {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
                 {"sWidth": "200px"}
             ]
-        });
-
-        jQuery(function($){
-            $("#placa").mask("N999-999");
         });
     });
 </script>

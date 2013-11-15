@@ -1,30 +1,61 @@
-<%@ page language="java" contentType="text/html"  pageEncoding="ISO-8859-1"%>
-
 <%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Registrar Usuario</title>
-        <link rel="stylesheet" href="estilos/style.css">
-        <link rel="stylesheet" href="estilos/foundation.css">
-    </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">
-        <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-        
-            <section class="container">
-                <div class="login">
-                    <h1>Registrar Usuario</h1>
-                    <form method="post" action="Registro.jsp">
-                        <p>Nombre<input type="text" name="nombre" required="required" value="" placeholder="Nombre"></p>       
-                        <p>Usuario<input type="text" name="username" required="required" value="" placeholder="Username"></p>
-                        <p>Contraseña<input type="password" name="password" required="required" value="" placeholder="Password"></p>
-                        <p>Nivel<input type="text" name="nivel" required="required" value="" placeholder="Nivel"></p>      
-                        <p class="submit1"><input type="submit" name="commit" value="Registrar"></p>
-                    </form>
-                </div>
-            </section>
-        
-    </body>
+  <head>
+    <title>Registrar Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  </head>
+  <body>
+    <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
+    
+    <div class="container">
+        <div class="panel panel-success">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="text-align: center;">Registrar Usuario</div>
+            <div class="panel-body">
+                <form class="form-horizontal" method="post" action="Registro.jsp">
+                    
+                    <div class="form-group">
+                        <label for="nombre" class="col-lg-4 control-label">Nombre:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username" class="col-lg-4 control-label">Usuario:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength="50" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-lg-4 control-label">Contraseña:</label>
+                        <div class="col-lg-4">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" maxlength="50" required />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nivel" class="col-lg-4 control-label">Nivel:</label>
+                        <div class="col-lg-4">
+                            <select id="nivel" name="nivel" class="form-control">
+                                <option value="1">Administrador</option>
+                                <option value="2">Gerente</option>
+                                <option value="3">SubGerente</option>
+                                <option value="4">Motorista</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <center>
+                        <input type="submit" class="btn btn-success" value="Registrar" />
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
 </html>

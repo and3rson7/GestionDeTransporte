@@ -9,6 +9,7 @@ package sv.edu.ues.dsi215.login.dominio;
  * @author anderson
  */
 public class Constantes {
+    public static final String pUrl = "jdbc:mysql://localhost/gestiontransporte";
     public static final String pHost = "localhost:3306";
     public static final String pUser = "root";
     public static final String pPassword = "";

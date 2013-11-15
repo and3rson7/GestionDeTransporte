@@ -1,49 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-
-<%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="sv.edu.ues.dsi215.login.dominio.ConsultaUsuarios" %>
+<%@ page import="sv.edu.ues.dsi215.login.dominio.Usuario" %>
 <%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Gestionar Usuarios</title>
-        <link rel="stylesheet" href="estilos/estilos.css">
-    </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">
-        <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-        <%
-            String user = "root";
-            String clave = "";
-            String ruta = "jdbc:mysql://localhost:3306/gestiontransporte";
-
-            Connection conexion = null;
-            Statement Sentencias = null;
-            ResultSet tabla = null;
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexion = DriverManager.getConnection(ruta, user, clave);
-            Sentencias = conexion.createStatement();
-            tabla = Sentencias.executeQuery("select * from login");
-
-            out.println("<html><center><h1>Usuarios Registrados</h1></center><html>");
-            out.println("<TABLE Border=10 CellPadding=5 align=center><TR>");
-
-            out.println("<th bgcolor=White>NIVEL</th><th bgcolor=White>USUARIO</th><th bgcolor=White>NOMBRE</th>"
-                    + "<th bgcolor=White>CONTRASEÑA</th><th bgcolor=White>Eliminar</th></TR>");
-
-   
-            // ciclo de lectura del resultset
-            while (tabla.next()) {
-                out.println("<TR>");
-                out.println("<TD>" + tabla.getString(1) + "</TD>");
-                out.println("<TD>" + tabla.getString(2) + "</TD>");
-                out.println("<TD>" + tabla.getString(3) + "</TD>");
-                out.println("<TD>" + tabla.getString(4) + "</TD>");
-                out.println("<TD>" + "<a href=EliminarUsuario.jsp?cod=" + tabla.getString(4) + ">" + "Eliminar" + "</a>" + "</TD>");
-                out.println("</TR>");
-            }; // fin while
-            out.println("</TABLE></CENTER></DIV> </HTML>");
-        %>
-    </body>
+  <head>
+    <title>Gestión de Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <%@ include file="WEB-INF/jspf/datatable-usuario.jspf" %>
+  </head>
+  <body>
+    
+    <div class="container">
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="text-align: center;">Gestión de Usuarios</div>
+            <div class="panel-body">
+            
+            <!-- Table -->
+            <table id="mi_tabla" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Contraseña</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        LinkedList<Usuario> lista = ConsultaUsuarios.getUsuarios();
+                        for (int i = 0; i < lista.size(); i++) {
+                            out.println("<tr>");
+                            out.println("<td>" + lista.get(i).getNivel() + "</td>");
+                            out.println("<td>" + lista.get(i).getUsuario() + "</td>");
+                            out.println("<td>" + lista.get(i).getNombre() + "</td>");
+                            out.println("<td>" + lista.get(i).getContraseña() + "</td>");
+                            out.println("<td>" + "<a href=EliminarUsuario.jsp?cod=" + lista.get(i).getContraseña() + ">" + "Eliminar" + "</a>" + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </tbody>
+            </table>
+        </div></div>
+    </div>
+    
+  </body>
 </html>
