@@ -17,7 +17,7 @@
         <script type="text/javascript" src="js/validarActividades.js"></script>        
         <title>Registrar Bitacora de Actividades</title> 
     </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">           
+    <body>           
         <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
     <center> <p style="font-size:25px "><strong>Registro de Actividades de Motoristas</strong></p> </center>
     
@@ -62,8 +62,8 @@
        <p>Km de salida <input type="number" min="0" name="kmsalida" required placeholder="Km de salida" onkeypress="return permite(event, 'num')">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           Km de retorno <input type="number" min="0" name="kmretorno" required placeholder="Km de retorno" onkeypress="return permite(event, 'num')">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Km utilizados <input type="number" name="kmutilizados" required min="0" placeholder="Kmutilizados" onkeypress="return permite(event, 'num')"</p>
+          
+          Km utilizados <input type="text01" name="kmutilizados" required min="0" placeholder="Kmutilizados" onkeypress="return permite(event, 'num')"</p>
        
      <%
      Class.forName("com.mysql.jdbc.Driver").newInstance();
