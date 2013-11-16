@@ -23,7 +23,7 @@
       <h1>Bitacora de Actividad</h1>
       <form method="post" action="GuardarBitacora.jsp">
           <strong>   
-       <p>Número de Bitacora <input type="text" name="correlativo" maxlength="8" value="${correlativo}" placeholder="Correlativo" required></p>       
+              <p>Número de Bitacora <input type="text" name="correlativo" maxlength="8" value="${correlativo}" placeholder="Correlativo" required readonly></p>       
        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mes
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

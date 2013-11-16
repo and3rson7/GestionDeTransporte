@@ -15,7 +15,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="estilos/estilo-registro-actividad.css">
         <script type="text/javascript" src="js/validarActividades.js"></script>        
-        <title>Registrar Bitacora de Actividades</title> 
+        <title>Registrar Bitacora de Actividades</title>
+        
+        <script> 
+        function varios(){ 
+        <!-- Resta --> 
+        n1 = parseInt(Registrar.kmretorno.value); 
+        n2 = parseInt(Registrar.kmsalida.value); 
+        Registrar.kmutilizados.value=n1-n2;
+        } 
+        </script>
     </head>
     <body>           
         <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
@@ -38,9 +47,9 @@
 <br><br>
     <div class="Registrar">
       <h1>Registrar Actividad</h1>
-      <form method="post" action="RegistrarAct.jsp">
+      <form name="Registrar" method="post" action="RegistrarAct.jsp">
        <p>Codigo de la Actividad <input type="text01" name="numero" maxlength="8" value="${correlativo}" placeholder="Codigo Actividad" 
-                                       onkeypress="return permite(event, 'caracteres')" required>
+                                        onkeypress="return permite(event, 'caracteres')" required readonly>
        </p>       
        <p>Fecha  
          <input type="date" name="fecha" required value="" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,11 +68,11 @@
           Hora de Retorno &nbsp;&nbsp;<input type="time" name="horaretorno" required value="" >
        </p>
        
-       <p>Km de salida <input type="number" min="0" name="kmsalida" required placeholder="Km de salida" onkeypress="return permite(event, 'num')">
+       <p>Km de salida <input type="number" min="0" name="kmsalida" required  onkeypress="return permite(event, 'num')">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Km de retorno <input type="number" min="0" name="kmretorno" required placeholder="Km de retorno" onkeypress="return permite(event, 'num')">
-          
-          Km utilizados <input type="text01" name="kmutilizados" required min="0" placeholder="Kmutilizados" onkeypress="return permite(event, 'num')"</p>
+          Km de retorno <input type="number" min="0" name="kmretorno" required onkeypress="return permite(event, 'num')">
+          &nbsp;&nbsp;
+          Km utilizados <input type="text01" name="kmutilizados" required min="0" readonly onclick="varios()"</p>
        
      <%
      Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -105,7 +114,7 @@
             <option value=""></option> 
             <%
             while(tabla.next()){
-            out.print("<option value='"+tabla.getString(3)+"'>"+tabla.getString(3)+"</option>");
+            out.print("<option value='"+tabla.getString(2)+"'>"+tabla.getString(2)+"</option>");
             }                              
                      %> 
             </select>

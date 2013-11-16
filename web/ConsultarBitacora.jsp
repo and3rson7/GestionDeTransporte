@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="estilos/table-style.css">
         <title>Consultar Bitacoras</title>
     </head>
-    <body style="height: 750px; background: linear-gradient(#D8D8D8, #39C, #39C)">        
+    <body>        
             <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
         <%
 
