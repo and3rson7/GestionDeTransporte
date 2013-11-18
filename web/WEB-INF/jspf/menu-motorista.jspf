@@ -22,9 +22,9 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actividades <b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="BitacoraActividadesVM.jsp">Bitacora Actividades</a></li>
+            <li><a href="CorrelativoBitacoras">Bitacora Actividades</a></li>
             <li><a href="ConsultarBitacoraVM.jsp">Consultar Bitacoras</a></li>
-            <li><a href="RegistrarActividadesVM.jsp">Registrar Actividad</a></li>
+            <li><a href="CodigoActividadVM">Registrar Actividad</a></li>
         </ul>
       </li>
       

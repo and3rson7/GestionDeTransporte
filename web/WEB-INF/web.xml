@@ -64,6 +64,14 @@
         <servlet-name>CodigoActividad</servlet-name>
         <servlet-class>sv.edu.ues.dsi215.servlets.CodigoActividad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CorrelativoBitacoras</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.CorrelativoBitacoras</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CodigoActividadVM</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.CodigoActividadVM</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUnidadController</servlet-name>
         <url-pattern>/RegistrarUnidadController</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>CodigoActividad</servlet-name>
         <url-pattern>/CodigoActividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CorrelativoBitacoras</servlet-name>
+        <url-pattern>/CorrelativoBitacoras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CodigoActividadVM</servlet-name>
+        <url-pattern>/CodigoActividadVM</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
