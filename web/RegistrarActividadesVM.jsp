@@ -14,12 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@ include file="WEB-INF/jspf/global-libs.jspf" %>
-        <link rel="stylesheet" href="estilos/estilo-registro-actividad.css">
         <script type="text/javascript" src="js/validarActividades.js"></script>        
         <title>Registrar Bitacora de Actividades</title>
         
         <script> 
-        function varios(){ 
+        function restar(){ 
         <!-- Resta --> 
         n1 = parseInt(Registrar.kmretorno.value); 
         n2 = parseInt(Registrar.kmsalida.value); 
@@ -29,103 +28,147 @@
     </head>
     <body>           
         <%@ include file="WEB-INF/jspf/menu-motorista.jspf" %>
-    <center> <p style="font-size:25px "><strong>Registro de Actividades de Motoristas</strong></p> </center>
-    
-<%--  <div class="fondo1">	--%>
-<%
-     String user="root";
-     String clave="";
-     String ruta="jdbc:mysql://localhost:3306/gestiontransporte";
+    <div class="container">
+        <div class="panel panel-success">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="text-align: center;">Registro de Actividades</div>
+            <div class="panel-body">
+                <form name="Registrar" class="form-horizontal" method="post" action="RegistrarActVM.jsp">
+                    
+                    <div class="form-group">
+                        <label for="numero" class="col-lg-4 control-label">Codigo de la Actividad:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="numero" id="numero" maxlength="8" value="${correlativo}"required readonly/>
+                        </div>
+                    </div>
+                    <%
+                    String user="root";
+                    String clave="";
+                    String ruta="jdbc:mysql://localhost:3306/gestiontransporte";
 
-     Connection conexion=null;
-     Statement Sentencias = null;
-     ResultSet tabla = null;
-     Class.forName("com.mysql.jdbc.Driver").newInstance();
-     conexion =DriverManager.getConnection(ruta,user,clave);
-     Sentencias = conexion.createStatement();
-     tabla = Sentencias.executeQuery("SELECT correlativo FROM bitacoraactividades");     
-     %>
-<br><br>
-    <div class="Registrar">
-      <h1>Registrar Actividad</h1>
-      <form name="Registrar" method="post" action="RegistrarAct.jsp">
-       <p>Codigo de la Actividad <input type="text01" name="numero" maxlength="8" value="${correlativo}" placeholder="Codigo Actividad" 
-                                        onkeypress="return permite(event, 'caracteres')" required readonly>
-       </p>       
-       <p>Fecha  
-         <input type="date" name="fecha" required value="" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         Correlativo &nbsp;&nbsp;&nbsp;&nbsp;
-            <select id="Field1" name="correlativo" required>
-            <option value=""></option> 
-            <%
-            while(tabla.next()){
-            out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
-            }                              
-                     %> 
-            </select>
-       </p>
-       <p>Hora de Salida <input type="time" name="horasalida" required value="" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Hora de Retorno &nbsp;&nbsp;<input type="time" name="horaretorno" required value="" >
-       </p>
-       
-       <p>Km de salida <input type="number" min="0" name="kmsalida" required  onkeypress="return permite(event, 'num')">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Km de retorno <input type="number" min="0" name="kmretorno" required onkeypress="return permite(event, 'num')">
-          &nbsp;&nbsp;
-          Km utilizados <input type="text01" name="kmutilizados" required min="0" readonly onclick="varios()"</p>
-       
-     <%
-     Class.forName("com.mysql.jdbc.Driver").newInstance();
-     conexion =DriverManager.getConnection(ruta,user,clave);
-     Sentencias = conexion.createStatement();
-     tabla = Sentencias.executeQuery("Select * From solicitudtransporte where estado='Aprobada' ");
-     %>
-       <p>Codigo de la solicitud
-            <select id="Field1" name="solicitud" required>
-            <option value=""></option> 
-            <%
-            while(tabla.next()){
-            out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
-            }                     
-                     %> 
-            </select>
-       
-       <p>Objetivo de la Mision
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Lugar <br>
-          <input type="text" name="objetivo" maxlength="100" value="" placeholder="Objetivo de la mision" 
-                                onkeypress="return permite(event, 'num_car')" required>
-          &nbsp;&nbsp;&nbsp;
-         <input type="text" name="lugar" maxlength="50" required value="" 
-                                placeholder="Lugar de la mision" onKeyPress="return permite(event, 'num_car')" >
-       </p>
-       
-       <br>   
-     <%
-     Class.forName("com.mysql.jdbc.Driver").newInstance();
-     conexion =DriverManager.getConnection(ruta,user,clave);
-     Sentencias = conexion.createStatement();
-     tabla = Sentencias.executeQuery("Select * From motorista");
-     %>
-       Nombre del Motorista
-       <select id="Field2" name="motorista" required>
-            <option value=""></option> 
-            <%
-            while(tabla.next()){
-            out.print("<option value='"+tabla.getString(2)+"'>"+tabla.getString(2)+"</option>");
-            }                              
-                     %> 
-            </select>
-       </p>
-       <p>Obsevaciones <input type="text" name="observaciones" maxlength="120"></p>
-       <p class="submit"><input type="submit" name="commit" value="Guardar Actividad"></p>        
-      </form>
-    </div>    
-  
-<%-- </div> --%>
+                    Connection conexion=null;
+                    Statement Sentencias = null;
+                    ResultSet tabla = null;
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    conexion =DriverManager.getConnection(ruta,user,clave);
+                    Sentencias = conexion.createStatement();
+                    tabla = Sentencias.executeQuery("SELECT correlativo FROM bitacoraactividades");     
+                    %>   
+                    <div class="form-group">
+                        <label for="correlativo" class="col-lg-4 control-label">Correlativo de Bitacora:</label>
+                        <div class="col-lg-4">
+                            <select id="correlativo" name="correlativo" class="form-control">
+                                <option value="">Seleccionar Bitacora</option>
+                                <%
+                                while(tabla.next()){
+                                out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
+                                }                              
+                                %> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha" class="col-lg-4 control-label">Fecha de la Actividad:</label>
+                        <div class="col-lg-4">
+                            <input type="date" class="form-control" name="fecha" id="fecha" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="horasalida" class="col-lg-4 control-label">Hora de Salida:</label>
+                        <div class="col-lg-4">
+                            <input type="time" class="form-control" name="horasalida" id="horasalida" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="horaretorno" class="col-lg-4 control-label">Hora de Retorno:</label>
+                        <div class="col-lg-4">
+                            <input type="time" class="form-control" name="horaretorno" id="horaretorno" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kmsalida" class="col-lg-4 control-label">Kilometraje de Salida:</label>
+                        <div class="col-lg-4">
+                            <input type="number" min="0" class="form-control" name="kmsalida" id="kmsalida" onkeypress="return permite(event, 'num')" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kmretorno" class="col-lg-4 control-label">Kilometraje de Retorno:</label>
+                        <div class="col-lg-4">
+                            <input type="number" min="0" class="form-control" name="kmretorno" id="kmretorno" onkeypress="return permite(event, 'num')" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kmutilizados" class="col-lg-4 control-label">Kilometraje Utilizado:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="kmutilizados" id="kmutilizados" readonly onclick="restar()" required/>
+                        </div>
+                    </div>
+                    <%
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    conexion =DriverManager.getConnection(ruta,user,clave);
+                    Sentencias = conexion.createStatement();
+                    tabla = Sentencias.executeQuery("Select * From solicitudtransporte where estado='Aprobada' ");
+                    %>
+                    <div class="form-group">
+                        <label for="solicitud" class="col-lg-4 control-label">Codigo de la Solicitud:</label>
+                        <div class="col-lg-4">
+                            <select id="solicitud" name="solicitud" class="form-control" required>
+                                <option value="">Seleccionar Solicitud</option>
+                                <%
+                                while(tabla.next()){
+                                out.print("<option value='"+tabla.getString(1)+"'>"+tabla.getString(1)+"</option>");
+                                }                              
+                                %> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="objetivo" class="col-lg-4 control-label">Objetivo de la Misión:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="objetivo" id="objetivo" onkeypress="return permite(event, 'num_car')" 
+                                   maxlength="100" placeholder="Objetivo de la mision" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lugar" class="col-lg-4 control-label">Lugar:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="lugar" id="lugar" maxlength="50" 
+                                   placeholder="Lugar de la mision" onkeypress="return permite(event, 'num_car')" required/>
+                        </div>
+                    </div>
+                    <%
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    conexion =DriverManager.getConnection(ruta,user,clave);
+                    Sentencias = conexion.createStatement();
+                    tabla = Sentencias.executeQuery("Select * From motorista");
+                    %>
+                    <div class="form-group">
+                        <label for="motorista" class="col-lg-4 control-label">Nombre del Motorista:</label>
+                        <div class="col-lg-4">
+                            <select id="motorista" name="motorista" class="form-control" required>
+                                <option value="">Seleccionar nombre</option>
+                                <%
+                                while(tabla.next()){
+                                out.print("<option value='"+tabla.getString(2)+"'>"+tabla.getString(2)+"</option>");
+                                }                              
+                                %> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones" class="col-lg-4 control-label">Observaciones:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="observaciones" id="observaciones" maxlength="120" 
+                                   placeholder="Observaciones" onkeypress="return permite(event, 'num_car')" />
+                        </div>
+                    </div>
+                    <center>
+                        <input type="submit" class="btn btn-success" value="Guardar Actividad" />
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
     
 </html>
