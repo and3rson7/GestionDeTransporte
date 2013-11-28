@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 import sv.edu.ues.dsi215.login.dominio.Motorista;
 
 /**
@@ -49,7 +50,7 @@ public class enviarMotoristaServlet extends HttpServlet {
             PreparedStatement pst;
             String sql = "";
             
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "SELECT * FROM motorista WHERE licencia='" + request.getParameter("licencia") + "'";
             }
