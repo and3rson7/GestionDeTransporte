@@ -50,7 +50,7 @@ public class CodigoActividad extends HttpServlet {
             
             connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
-                sql = "SELECT MAX(correlativo) AS maxC FROM detallebitacoraactividades";
+                sql = "SELECT MAX(numero) AS maxC FROM detallebitacoraactividades";
             }
             
             pst = connection.prepareStatement(sql);

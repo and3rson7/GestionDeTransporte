@@ -48,6 +48,7 @@
                     <input type="submit" class="btn btn-success" value="OK >>" /></div>
                 </form>
             </div>
+<<<<<<< HEAD
         </div>
     </div>
     <script>
@@ -66,4 +67,25 @@
     </script>
     <%@ include file="WEB-INF/jspf/validate-bitacora-combustible.jspf" %>
   </body>
+=======
+        </center>
+    
+        <script>
+            $(function() {
+              $("#fecha").datepicker({
+                showOn: "button",
+                buttonImage: "datatables/media/images/calendar.gif",
+                buttonImageOnly: true;
+              });
+              
+              $("#fecha").change(function (){
+                  $("#fecha").focus();
+                  $("#hora").focus();
+              });
+            });
+        </script>
+        
+        <%@ include file="WEB-INF/jspf/validate-bitacora-combustible.jspf" %>
+    </body>
+>>>>>>> d787e3a7618e0dd29e465b6c520b9083cc0b8917
 </html>

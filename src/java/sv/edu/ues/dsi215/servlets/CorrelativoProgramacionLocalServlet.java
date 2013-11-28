@@ -63,12 +63,13 @@ public class CorrelativoProgramacionLocalServlet extends HttpServlet {
             
             if(rs.getString("maxC") != null){
                 lastC = rs.getString("maxC");
-                valor = Integer.parseInt(lastC.substring(3, 9));
+                valor = Integer.parseInt(lastC.substring(2, 8));
                 valor = valor + 1;
                 
-                correlativo = "PAL" + String.valueOf(valor);
+                correlativo = "PL" + String.valueOf(valor);
             }else{
-                correlativo = "PAL100001";
+                correlativo = "PL100001";
+                
             }
             
             connection.close();

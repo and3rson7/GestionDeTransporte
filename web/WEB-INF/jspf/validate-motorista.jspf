@@ -1,0 +1,51 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<link rel="stylesheet" href="jquery-form-validate/jquery.validate.css">
+<script type="text/javascript" src="jquery-form-validate/jquery.validate.js"></script>
+
+<script type="text/javascript">
+        jQuery(function(){
+            jQuery("#licencia").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#nombres").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#apellidos").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+
+            jQuery("#dui").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+
+            jQuery("#telefono").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+
+            jQuery("#direccion").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+            jQuery("#sexo").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+                
+            
+            jQuery("#estado").validate({
+                    expression: "if (VAL) return true; else return false;",
+                    message: "Campo Requerido"
+            });
+            
+        });
+</script>

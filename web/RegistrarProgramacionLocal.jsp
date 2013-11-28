@@ -1,36 +1,56 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : RegistrarMotorista
+    Created on : 11-23-2013, 10:47:42 PM
+    Author     : Elmer Arnoldo Menjivar Ramos
+--%>
+
 <%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Programacion de Actividades Locales</title>
-        
-        <script type="text/javascript" src="datatables/media/js/jquery.js"></script>
-                <link rel="stylesheet" href="datatables/media/css/cupertino/jquery-ui-1.10.3.custom.css">
-        
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-        <script src="bootstrap/js/bootstrap.js"></script>
-    </head>
-    <body>
-        <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-
-        <center>
-            <p style="font-family:Cambria;color:black;font-size:25px; margin-bottom: 20px;">
-                <strong>Registrar Programacion de Actividades Locales</strong>
-            </p>
-        </center>
-
-        <center>
-            <div class="well">
-                <form class="form-inline" id="registrar_bitacora_combustible" method="post" action="RegistrarProgramacionLocalController">
-                    <label for="correlativo">Correlativo:</label>
-                    <input type="text" name="correlativo" id="correlativo" class="form-control" style="width: 100px; margin-left: 10px; margin-right: 10px;" value="${correlativo}" readonly />
-
-                    <input type="submit" class="btn btn-success" value="OK >>" />
+  <head>
+    <title>Registrar Motorista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="tcal.css" />
+    <script type="text/javascript" src="tcal.js"></script>    
+  </head>
+  <body>
+    <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
+    
+    <div class="container">
+        <div class="panel panel-success">
+            <!-- Default panel contents -->
+            <div class="panel-heading" style="text-align: center;">Registrar Programacion Local</div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="registrar_programacion_local" method="post" action="RegistrarProgramacionLocalController">  
+                    <div class="col-lg-4">
+                        <label for="fecha" class="col-lg-4 ">Fecha de Registro:</label>
+                        <div class="col-lg-2">
+                            <input type="text" required name="fecha"  id="fecha" class="tcal" />
+                        </div>
+                    </div>
+                        <label for="correlativo" class="col-lg-3 control-label">Correlativo:</label>
+                        <div class="col-lg-4">
+                            <input type="text"  value="${correlativo}" name="correlativo" class="form-control" id="correlativo" maxlength="10"  readonly=""/>
+                        </div>
+                        <br><br><br>
+                    <center>
+                        <input class="btn btn-success" type="submit" value="Ok >>" />
+                        <input type="button" class="btn btn-danger" value="Cancelar" onclick="location.href='vistaAdministrador.jsp'">
+                    </center>
                 </form>
             </div>
-        </center>
- </body>
+        </div>
+    </div>
+    
+    <%
+        if(request.getSession().getAttribute("message") != null) {%>
+            <script type="text/javascript">
+                alert('<%=request.getSession().getAttribute("message")%>');
+            </script>
+            <% request.getSession().removeAttribute("message");
+        }
+    %>
+    
+  </body>
 </html>
