@@ -1,65 +1,91 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- 
+    Document   : ConsultarMotorista1
+    Created on : 11-25-2013, 07:56:51 PM
+    Author     : Elmer Arnoldo Menjivar Ramos
+--%>
+
+<%@ page import="java.util.LinkedList" %>
 <%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
-<!DOCTYPE HTML>
+<%@ page import="sv.edu.ues.dsi215.login.dominio.*" %>
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultar Motorista</title>
-        <link rel="stylesheet" href="estilos/estilos-plantilla.css">
-        <link rel="stylesheet" href="estilos/table-style.css">
-    </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">
-        <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-    <%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
-     <%
-     String estado = "Eliminado";
-     String user="root";
-     String clave="";
-     String ruta="jdbc:mysql://localhost:3306/gestiontransporte";
+  <head>
+    <title>Consultar Registros De Motoristas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <%@ include file="WEB-INF/jspf/datatable-motorista.jspf" %>
+  </head>
+  
+  <body>
+      <div class="container">
+          <div class="panel panel-info">
+              <!-- Default panel contents -->
+              <div class="panel-heading" style="text-align: center;">Consultar Registros De Motoristas</div>
+              <div class="panel-body">
+                  <table id="mi_tabla" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+                      <thead>
+                          <tr>
+                              <th>N° de Licencia</th>
+                              <th>Nombres</th>
+                              <th>Apellidos</th>
+                              <th>N° de DUI</th>
+                              <th>Telefono</th>
+                              <th>Direccion</th>
+                              <th>Sexo</th>
+                              <th>Fecha de Registro</th>
+                              <th>Estado Actual</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <%
+                              LinkedList<Motorista> lista = ConsultaMotorista.getMotorista();
+                              for (int i = 0; i < lista.size(); i++) {
+                                  out.println("<tr>");
+                                  out.println("<td>" + lista.get(i).getLicencia() + "</td>");
+                                  out.println("<td>" + lista.get(i).getNombres() + "</td>");
+                                  out.println("<td>" + lista.get(i).getApellidos() + "</td>");
+                                  
+                                  out.println("<td>" + lista.get(i).getDui() + "</td>");
+                                  out.println("<td>" + lista.get(i).getTelefono() + "</td>");
+                                  
+                                  out.println("<td>" + lista.get(i).getDireccion() + "</td>");
+                                  out.println("<td>" + lista.get(i).getSexo() + "</td>");
+                                  
+                                  out.println("<td>" + lista.get(i).getFecha() + "</td>");
+                                  out.println("<td>" + lista.get(i).getEstado() + "</td>");
+                                  
+                                  out.println("</tr>");
+                              }
+                          %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      
+      <div class="container">
+          <div class="panel panel-info">
+              <!-- Default panel contents -->
+              <div class="panel-heading" style="text-align: center;">Operaciones</div>
+              <div class="panel-body" style="text-align: center;">
+                  <form class="form-inline" role="form" method="post" onsubmit="return confirm('¿Estás seguro que quieres realizar esta acción?');">
+                      <label for="licencia">Licencia:</label>
+                      <input type="text" name="licencia" id="licencia" class="form-control" style="width: 100px; margin-left: 20px; margin-right: 20px;" required>
 
-    Connection conexion=null;
-    Statement Sentencias = null;
-    ResultSet tabla = null;
-     Class.forName("com.mysql.jdbc.Driver").newInstance();
-        conexion =DriverManager.getConnection(ruta,user,clave);
-        Sentencias = conexion.createStatement();
-         tabla = Sentencias.executeQuery("Select * From motorista where estado != '"+estado+"'");
-
-out.println("<html><center><h1>REGISTROS EXISTENTES </h1></center><br><html>");
-out.println("<TABLE Border=10 CellPadding=5 align=center><TR>");
-
-out.println("<th bgcolor=White>LICENCIA</th><th bgcolor=White>NOMBRES</th><th bgcolor=White>APELLIDOS</th>"+
-        "<th bgcolor=White>DUI</th><th bgcolor=White>TELEFONO</th>"
- + "<th bgcolor=White>DIRECCION</th><th bgcolor=White>SEXO</th><th bgcolor=White>FECHA DE REGISTRO</th><th bgcolor=White>ESTADO</th></TR>");
-
-// ciclo de lectura del resultset
-
-while(tabla.next()) {
-
-out.println("<TR>");
-
-out.println("<TD>"+tabla.getString(1)+"</TD>");
-
-out.println("<TD>"+tabla.getString(2)+"</TD>");
-
-out.println("<TD>"+tabla.getString(3)+"</TD>");
-
-out.println("<TD>"+tabla.getString(4)+"</TD>");
-
-out.println("<TD>"+tabla.getString(5)+"</TD>");
-
-out.println("<TD>"+tabla.getString(6)+"</TD>");
-
-out.println("<TD>"+tabla.getString(7)+"</TD>");
-
-out.println("<TD>"+tabla.getString(8)+"</TD>");
-
-out.println("<TD>"+tabla.getString(9)+"</TD>");
-
-out.println("</TR>"); }; // fin while
-
-out.println("</TABLE></CENTER></DIV></HTML>");
-
-%>
-    </body>
+                      <input type="submit" value="Modificar Motorista >>" class="btn btn-warning" onclick="form.action='enviarMotoristaServlet';">
+                      <input type="submit" value="Eliminar Motorista >>" class="btn btn-danger" onclick="form.action='EliminarMotoristaServlet';">
+                  </form>
+              </div>
+          </div>
+      </div>
+      <%
+        if(request.getSession().getAttribute("message") != null) {%>
+            <script type="text/javascript">
+                alert('<%=request.getSession().getAttribute("message")%>');
+            </script>
+            <% request.getSession().removeAttribute("message");
+        }
+    %>
+  </body>
 </html>

@@ -72,6 +72,26 @@
         <servlet-name>CodigoActividadVM</servlet-name>
         <servlet-class>sv.edu.ues.dsi215.servlets.CodigoActividadVM</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>enviarMotoristaServlet</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.enviarMotoristaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarMotoristaController</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.ModificarMotoristaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarMotoristaServlet</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.EliminarMotoristaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarMotoristaController</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.EliminarMotoristaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarMotoristaController</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.RegistrarMotoristaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUnidadController</servlet-name>
         <url-pattern>/RegistrarUnidadController</url-pattern>
@@ -143,6 +163,26 @@
     <servlet-mapping>
         <servlet-name>CodigoActividadVM</servlet-name>
         <url-pattern>/CodigoActividadVM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>enviarMotoristaServlet</servlet-name>
+        <url-pattern>/enviarMotoristaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarMotoristaController</servlet-name>
+        <url-pattern>/ModificarMotoristaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarMotoristaServlet</servlet-name>
+        <url-pattern>/EliminarMotoristaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarMotoristaController</servlet-name>
+        <url-pattern>/EliminarMotoristaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarMotoristaController</servlet-name>
+        <url-pattern>/RegistrarMotoristaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

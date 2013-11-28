@@ -1,7 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package sv.edu.ues.dsi215.servlets;
 
 import java.io.IOException;
@@ -9,7 +11,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +19,13 @@ import sv.edu.ues.dsi215.login.dominio.Conexion;
 
 /**
  *
- * @author anderson
+ * @author Arnoldo
  */
-public class CorrelativoProgramacionLocalServlet extends HttpServlet {
+public class RegistrarMotoristaController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -37,45 +37,45 @@ public class CorrelativoProgramacionLocalServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
         try {
             Conexion prueba = new Conexion();
             Connection connection;
-            ResultSet rs;
+            //ResultSet rs;
             PreparedStatement pst;
             String sql = "";
-            @SuppressWarnings("UnusedAssignment")
-            String correlativo = "";
-            @SuppressWarnings("UnusedAssignment")
-            String lastC = "";
-            Integer valor;
+            
+            
+            String licencia = request.getParameter("licencia");
+            String nombres = request.getParameter("nombres");
+            String apellidos = request.getParameter("apellidos");
+            String dui = request.getParameter("dui");
+            String telefono = request.getParameter("telefono");
+
+            String direccion = request.getParameter("direccion");
+            String sexo = request.getParameter("sexo");
+            String fecha = request.getParameter("fecha");
+            String estado = request.getParameter("estado");
+
+            
             
             connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
-            if (!connection.isClosed()) {
-                sql = "SELECT MAX(correlativo) AS maxC FROM programacionlocal";
+            if (!connection.isClosed()) { 
+                sql = "INSERT INTO motorista " + "VALUES" + " ('" + licencia + "','" + nombres + "','" + apellidos
+                        + "','" + dui + "','" + telefono + "','" + direccion + "','" + sexo + "','" + fecha
+                        + "','" + estado + "')";
             }
-            
+
             pst = connection.prepareStatement(sql);
             //System.out.println(sql);
 
-            rs = pst.executeQuery(sql);
-            rs.next();
-            
-            if(rs.getString("maxC") != null){
-                lastC = rs.getString("maxC");
-                valor = Integer.parseInt(lastC.substring(2, 8));
-                valor = valor + 1;
-                
-                correlativo = "PL" + String.valueOf(valor);
-            }else{
-                correlativo = "PL100001";
-                
-            }
-            
+            pst.execute();
             connection.close();
             
-            request.getSession().setAttribute("correlativo", correlativo);
-            response.sendRedirect("RegistrarProgramacionLocal.jsp");
-        } catch(Exception e){
+            request.getSession().setAttribute("message", "¡¡ Registro Exitoso !!");
+            response.sendRedirect("RegistrarMotorista.jsp");
+            //request.getRequestDispatcher("RegistrarUnidad.jsp").forward(request, response);
+        } catch (Exception e) {
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
             String exceptionDetails = sw.toString();
@@ -83,11 +83,11 @@ public class CorrelativoProgramacionLocalServlet extends HttpServlet {
             request.getSession().setAttribute("errorLog", exceptionDetails);
             response.sendRedirect("errorMsg.jsp");
             //out.println("Unable to connect to database...");
-        }finally {            
+        } finally {
             out.close();
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

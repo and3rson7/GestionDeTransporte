@@ -55,7 +55,7 @@
               $("#fecha").datepicker({
                 showOn: "button",
                 buttonImage: "datatables/media/images/calendar.gif",
-                buttonImageOnly: true,
+                buttonImageOnly: true;
               });
               
               $("#fecha").change(function (){
