@@ -18,12 +18,12 @@ public class Conexion {
 
     public static Connection conectar(String pHost, String pUser, String pPassword) throws Exception {
         try {
-            String databaseURL = "jdbc:mysql://" + pHost + "/gestiontransporte";
+            String databaseURL = Constantes.pUrl;
             Class.forName("com.mysql.jdbc.Driver");
             DriverManager.setLoginTimeout(300);
             con_mysql = java.sql.DriverManager.getConnection(databaseURL,
                     pUser, pPassword);
-            System.out.println("Conexion con MySQL Establecida..");
+            System.out.println("Conexión con MySQL Establecida..");
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception(e);

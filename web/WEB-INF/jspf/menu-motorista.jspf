@@ -1,3 +1,12 @@
+<!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bootstrap/js/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
 <style type="text/css">
     body { padding-top: 70px; }
 </style>
@@ -25,6 +34,14 @@
             <li><a href="CorrelativoBitacoras">Bitacora Actividades</a></li>
             <li><a href="ConsultarBitacoraVM.jsp">Consultar Bitacoras</a></li>
             <li><a href="CodigoActividadVM">Registrar Actividad</a></li>
+        </ul>
+      </li>
+      
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Combustible <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="CorrelativoBitacoraCombustibleServlet">Registrar Bitacora</a></li>
+            <li><a href="ConsultarBitacorasCombustible.jsp">Consultar Bitacoras</a></li>
         </ul>
       </li>
       

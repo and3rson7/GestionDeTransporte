@@ -37,16 +37,16 @@
             },
 
             "sScrollX": '100%',
-            "sScrollXInner": "2000px",
+            "sScrollXInner": "110%",
             "bScrollCollapse": true,
             "bAutoWidth": false,
 
             "aoColumns": [
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"}
+                {"sWidth": "10%"},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": "10%"}
             ]
         });
     });

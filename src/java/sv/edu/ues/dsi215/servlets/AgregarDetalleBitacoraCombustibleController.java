@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -51,7 +52,7 @@ public class AgregarDetalleBitacoraCombustibleController extends HttpServlet {
             String correlativo = request.getParameter("correlativo");
             //System.out.println(hora);
             
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             
             /* recuperar las placas */
             if (!connection.isClosed()) {

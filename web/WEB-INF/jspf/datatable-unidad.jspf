@@ -38,25 +38,25 @@
             },
 
             "sScrollX": '100%',
-            "sScrollXInner": "3500px",
+            "sScrollXInner": "410%",
             "bScrollCollapse": true,
             "bAutoWidth": false,
-
+            
             "aoColumns": [
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"}
+                {"sWidth": "3%"},
+                {"sWidth": "3%"},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": "3%"},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null},
+                {"sWidth": null}
             ]
         });
 

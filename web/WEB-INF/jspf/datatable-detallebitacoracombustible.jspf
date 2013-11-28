@@ -1,17 +1,20 @@
 <%-- any content can be specified here e.g.: --%>
 
-<script type="text/javascript" src="datatables/media/js/jquery.js"></script>
-<script type="text/javascript" src="datatables/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="datatables/media/js/jquery-ui-1.10.3.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="datatables/media/css/dataTables.bootstrap.css">
 
-<link rel="stylesheet" href="datatables/media/css/cupertino/jquery-ui-1.10.3.custom.css">
-<link rel="stylesheet" href="datatables/media/css/jquery.dataTables_themeroller.css">
+<% if(request.getSession().getAttribute("rol").equals("Motorista")){ %>
+    <%@ include file="menu-motorista.jspf" %>
+<% }else if(request.getSession().getAttribute("rol").equals("Administrador")){ %>
+    <%@ include file="menu-administrador.jspf" %>
+<% } %>
 
-<script type="text/javascript">
+<script type="text/javascript" language="javascript" src="datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="datatables/media/js/dataTables.bootstrap.js"></script>
+
+<script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#mi_tabla').dataTable({
-            "bJQueryUI": true,
-            "sPaginationType": "full_numbers",
             "oLanguage": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",
@@ -25,33 +28,36 @@
                 "sUrl": "",
                 "sInfoThousands": ",",
                 "sLoadingRecords": "Cargando...",
+
                 "oPaginate": {
                     "sFirst": "Primero",
                     "sLast": "Último",
                     "sNext": "Siguiente",
                     "sPrevious": "Anterior"
                 },
+
                 "oAria": {
                     "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             },
+
             "sScrollX": '100%',
-            "sScrollXInner": "3000px",
+            "sScrollXInner": "250%",
             "bScrollCollapse": true,
             "bAutoWidth": false,
             
             "aoColumns": [
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "400px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"},
-                {"sWidth": "200px"}
+                {"sWidth": "7%"},
+                {"sWidth": "7%"},
+                {"sWidth": "7%"},
+                {"sWidth": "7%"},
+                {"sWidth": "15%"},
+                {"sWidth": "10%"},
+                {"sWidth": "7%"},
+                {"sWidth": "7%"},
+                {"sWidth": "7%"},
+                {"sWidth": null}
             ]
         });
     });
