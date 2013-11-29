@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -44,7 +45,7 @@ public class EliminarUnidadController extends HttpServlet {
             
             String placa = request.getParameter("placa");
             
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "UPDATE unidad SET estado='Eliminada' WHERE placa='" + placa + "'";
                 //sql = "DELETE FROM unidad WHERE placa='" + placa + "'";

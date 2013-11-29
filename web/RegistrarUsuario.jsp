@@ -20,21 +20,21 @@
                     <div class="form-group">
                         <label for="nombre" class="col-lg-4 control-label">Nombre:</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" required />
+                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="60" required />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="username" class="col-lg-4 control-label">Usuario:</label>
+                        <label for="username" class="col-lg-4 control-label">Nombre de Usuario:</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength="50" required />
+                            <input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength="30" required />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="password" class="col-lg-4 control-label">Contraseña:</label>
                         <div class="col-lg-4">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password" maxlength="50" required />
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" maxlength="30" required />
                         </div>
                     </div>
                     

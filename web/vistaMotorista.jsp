@@ -5,7 +5,6 @@
   <head>
     <title>Gestión de Transporte</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%@ include file="WEB-INF/jspf/global-libs.jspf" %>
     
   </head>
   <body style="background: linear-gradient(#D8D8D8, #39C, #39C)">

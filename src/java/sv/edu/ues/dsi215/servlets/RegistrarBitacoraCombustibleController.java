@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -54,7 +55,7 @@ public class RegistrarBitacoraCombustibleController extends HttpServlet {
             String correlativo = request.getParameter("correlativo");
             //System.out.println(hora);
             
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "INSERT INTO bitacoracombustible " + "VALUES" + " ('" + correlativo + "','" + fecha
                         + "','" + hora + "','" + gasolinera + "')";
@@ -67,7 +68,7 @@ public class RegistrarBitacoraCombustibleController extends HttpServlet {
             
             /* recuperar las placas */
             if (!connection.isClosed()) {
-                sql = "SELECT * FROM unidad WHERE estado<>'Eliminado'";
+                sql = "SELECT * FROM unidad WHERE estado<>'Eliminada'";
             }
             
             pst = connection.prepareStatement(sql);

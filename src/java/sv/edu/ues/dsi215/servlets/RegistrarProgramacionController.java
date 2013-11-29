@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -53,7 +54,7 @@ public class RegistrarProgramacionController extends HttpServlet {
             String fecharealizar = request.getParameter("fecharealizar");
             String estado = "Programada";
             
-            connection = Conexion.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "INSERT INTO programacionlocal " + "VALUES" + " ('" + correlativo + "','" + motorista
                         + "','" + unidades + "','" + numequipo + "','" + actividad + "','" + fecharealizar + "','" + hora

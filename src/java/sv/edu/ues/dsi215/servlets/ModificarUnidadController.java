@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -58,7 +59,7 @@ public class ModificarUnidadController extends HttpServlet {
             String num_chasis_vin = request.getParameter("num_chasis_vin").toUpperCase();
             String en_calidad = request.getParameter("en_calidad").toUpperCase();
             
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "UPDATE unidad SET " + "num_equipo='" + num_equipo + "',clase='" + clase
                     + "',marca='" + marca + "',modelo='" + modelo + "',color='"
