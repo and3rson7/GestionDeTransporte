@@ -4,14 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/ModificarProgramacionLocal.jsp</file>
+            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/login/dominio/ConsultaProgramacionLocal.java</file>
+            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/ConsultarProgramacionLocal.jsp</file>
             <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/ModificarMotorista.jsp</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/servlets/CorrelativoProgramacionLocalServlet.java</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/login/dominio/DetalleBitacoraCombustible.java</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/RegistrarBitacoraCombustible.jsp</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/RegistrarMotorista.jsp</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/servlets/RegistrarMotoristaController.java</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/servlets/enviarMotoristaServlet.java</file>
-            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/RegistrarProgramacionLocal.jsp</file>
+            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/web/ConsultarMotorista.jsp</file>
+            <file>file:/C:/Users/Arnoldo/Documents/GitHub/GestionDeTransporte/src/java/sv/edu/ues/dsi215/servlets/enviarProgramacionLocalServlet.java</file>
         </group>
     </open-files>
 </project-private>

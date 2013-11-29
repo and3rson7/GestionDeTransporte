@@ -81,7 +81,7 @@
                     <div class="form-group">
                         <label for="fecha" class="col-lg-4 control-label">Fecha de Registro:</label>
                         <div class="col-lg-4">
-                            <input type="text" required name="fecha"  id="fecha" class="tcal"/>
+                            <input type="date" required name="fecha"  id="fecha" class="form-control"/>
                         </div>
                     </div>
 

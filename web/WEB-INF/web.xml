@@ -92,6 +92,14 @@
         <servlet-name>RegistrarMotoristaController</servlet-name>
         <servlet-class>sv.edu.ues.dsi215.servlets.RegistrarMotoristaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>enviarProgramacionLocalServlet</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.enviarProgramacionLocalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarProgramacionLocalController</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.ModificarProgramacionLocalController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUnidadController</servlet-name>
         <url-pattern>/RegistrarUnidadController</url-pattern>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>RegistrarMotoristaController</servlet-name>
         <url-pattern>/RegistrarMotoristaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>enviarProgramacionLocalServlet</servlet-name>
+        <url-pattern>/enviarProgramacionLocalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarProgramacionLocalController</servlet-name>
+        <url-pattern>/ModificarProgramacionLocalController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

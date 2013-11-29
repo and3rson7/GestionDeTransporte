@@ -35,14 +35,6 @@
                         <input type="text" name="correlativo" class="form-control" id="correlativo" value="${correlativo}" readonly />
                     </div>
                 </div>
-                 
-                    <div class="form-group">
-                    <label for="fecha" class="col-lg-4 control-label">Fecha de Registro:</label>
-                    <div class="col-lg-4">
-                        <input type="text" name="fecha" class="form-control" value="<%= new java.util.Date() %>"id="fecha" required />
-                    </div>
-                </div>
-                    
                 <div class="form-group">
                     <label for="unidadesSelect" class="col-lg-4 control-label">Vehiculos Disponibles:</label>
                     <div class="col-lg-4">
@@ -127,7 +119,14 @@
                   <div class="form-group">
                     <label for="fecharealizar" class="col-lg-4 control-label">Dia a Realizar la Actividad:</label>
                     <div class="col-lg-4">
-                        <input type="text" name="fecharealizar" class="tcal" value="" id="fecharealizar" required />
+                        <input type="date" name="fecharealizar" class="form-control" value="" id="fecharealizar" required />
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label for="horainicio" class="col-lg-4 control-label">Hora de Inicio de la Actividad:</label>
+                    <div class="col-lg-4">
+                        <input type="time" name="horainicio" class="form-control" value="" id="horainicio" required />
                     </div>
                 </div>
                 <center>

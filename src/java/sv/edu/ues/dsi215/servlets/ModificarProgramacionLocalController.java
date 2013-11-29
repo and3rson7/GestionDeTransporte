@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sv.edu.ues.dsi215.servlets;
 
 import java.io.IOException;
@@ -17,47 +14,50 @@ import sv.edu.ues.dsi215.login.dominio.Conexion;
 
 /**
  *
- * @author anderson
+ * @author Elmer Arnoldo Menjivar Ramos
  */
-public class RegistrarProgramacionController extends HttpServlet {
+public class ModificarProgramacionLocalController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @SuppressWarnings("static-access")
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-           
+            Conexion prueba = new Conexion();
             Connection connection;
             //ResultSet rs;
             PreparedStatement pst;
             String sql = "";
             
             String correlativo = request.getParameter("correlativo");
-            String unidades = request.getParameter("unidadesSelect");
-            String numequipo = request.getParameter("equiposSelect");
-            String motorista = request.getParameter("motoristasSelect");
-            String actividad = request.getParameter("descripcionesSelect");
-            String duracion = request.getParameter("horasSelect");
-            String hora = request.getParameter("horainicio");
-            String unidadreq = request.getParameter("requeridasSelect");
-            String fecharealizar = request.getParameter("fecharealizar");
-            String estado = "Programada";
+            String motorista = request.getParameter("motorista");
+            String unidad = request.getParameter("unidad");
+            String numequipo = request.getParameter("numequipo");
+            String actividad = request.getParameter("actividad");
+            String fechaactividad = request.getParameter("fechaactividad");
             
-            connection = Conexion.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            String horainicio = request.getParameter("horainicio");
+            String duracionactividad = request.getParameter("duracionactividad");
+            String unidadrequerida = request.getParameter("unidadrequerida");
+            String estado = request.getParameter("estado");
+
+             
+            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
             if (!connection.isClosed()) {
-                sql = "INSERT INTO programacionlocal " + "VALUES" + " ('" + correlativo + "','" + motorista
-                        + "','" + unidades + "','" + numequipo + "','" + actividad + "','" + fecharealizar + "','" + hora
-                        + "','" + duracion + "','" + unidadreq + "','" + estado + "')";
+                sql = "UPDATE programacionlocal SET " + "motorista='" + motorista + "',unidad='" + unidad
+                    + "',numequipo='" + numequipo + "',actividad='" + actividad + "',fechaactividad='"
+                    + fechaactividad + "',horainicio='" + horainicio + "',duracionactividad='" + duracionactividad + "',unidadreq='" + unidadrequerida + "',estado='"
+                    + estado + "'" + " WHERE correlativo='" + correlativo + "'";
             }
             
             pst = connection.prepareStatement(sql);
@@ -65,8 +65,9 @@ public class RegistrarProgramacionController extends HttpServlet {
             
             pst.execute();
             connection.close();
-            
-            response.sendRedirect("CorrelativoProgramacionLocalServlet");
+            request.getSession().setAttribute("message", "¡¡ Modificacion Exitosa !!");
+            response.sendRedirect("ConsultarProgramacionLocal.jsp");
+            //request.getRequestDispatcher("RegistrarUnidad.jsp").forward(request, response);
         } catch(Exception e){
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
@@ -75,7 +76,7 @@ public class RegistrarProgramacionController extends HttpServlet {
             request.getSession().setAttribute("errorLog", exceptionDetails);
             response.sendRedirect("errorMsg.jsp");
             //out.println("Unable to connect to database...");
-        } finally {            
+        }finally {            
             out.close();
         }
     }

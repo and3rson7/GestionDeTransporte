@@ -13,8 +13,6 @@
     <title>Modificar Registro de Motorista</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="js/validarMotoristas.js"></script>
-    <link rel="stylesheet" type="text/css" href="tcal.css" />
-    <script type="text/javascript" src="tcal.js"></script>    
      
   </head>
   <body>
@@ -83,7 +81,7 @@
                 <div class="form-group">
                         <label for="fecha" class="col-lg-4 control-label">Fecha de Registro:</label>
                         <div class="col-lg-4">
-                            <input type="text" name="fecha"  value="<jsp:getProperty name="motorista" property="fecha" />" id="fecha" class="tcal" required/>
+                            <input type="date" name="fecha"  value="<jsp:getProperty name="motorista" property="fecha" />" id="fecha" class="form-control" required/>
                         </div>
                     </div>
                         

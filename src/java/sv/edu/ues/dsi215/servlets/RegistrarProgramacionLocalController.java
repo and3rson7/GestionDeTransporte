@@ -56,22 +56,14 @@ public class RegistrarProgramacionLocalController extends HttpServlet {
             LinkedList<String> unidadrequerida = new LinkedList<String>();
             
             String correlativo = request.getParameter("correlativo");
-            String motorista = request.getParameter("motorista");
-            String unidad = request.getParameter("unidad");
-            String numequipo = request.getParameter("numequipo");
-            String actividad = request.getParameter("actividad");
-            String fechaactividad = request.getParameter("fechaactividad");
-            String duracion = request.getParameter("duracion");
-            String unidadreq = request.getParameter("unidadrequerida");
-            String estado = request.getParameter("estado");
-            String fechaprogramacion = request.getParameter("fechaprogramacion");
+            String fecha = request.getParameter("fecha");
+            
             
             //System.out.println(hora);
             
             connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
             if (!connection.isClosed()) {
-                sql = "INSERT INTO programacionlocal " + "VALUES" + " ('" + correlativo + "','" + motorista
-                        + "','" + unidad + "','" + numequipo + "','" + actividad + "','" + fechaactividad + "','" + duracion + "','" + unidadreq + "','" + estado + "','" + fechaprogramacion + "')";
+                sql = "INSERT INTO agendalocal " + "VALUES" + " ('" + correlativo + "','" + fecha+ "')";
             }
             
             pst = connection.prepareStatement(sql);
