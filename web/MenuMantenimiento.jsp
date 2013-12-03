@@ -1,26 +1,37 @@
-<%@ page import="java.io.*,java.util.*,java.util.Date,java.net.*,java.sql.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+<%-- 
+    Document   : MenuMantenimiento
+    Created on : 11-23-2013, 06:49:36 PM
+    Author     : VICTOR
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.GregorianCalendar"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.text.SimpleDateFormat"%>
+
+<%@page import="java.util.Date"%>
 <%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
+<%@ include file="WEB-INF/jspf/menu-jefe de t.jspf" %>
+
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gestión de Transporte</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body language="javascript" onbeforeunload="return window_onbeforeunload()" style="background: linear-gradient(#D8D8D8, #39C, #39C)">
-    <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-    
-    <p style="font-family:Cambria;color:black;font-size:50px;text-align: center;">
-        <strong>Alcaldía Municipal de Cuscatancingo</strong>
-    </p>
+    <head>
+        <title>Menu Mantenimiento</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+
+    </head>
+    <body>
+       
+       
     
     <%@ include file="WEB-INF/jspf/slide.jspf" %>
     
     <%@ include file="WEB-INF/jspf/pie-pagina.jspf" %>
-    
+    </body>
     <%
-        String e="";
+        
         Calendar c1 = GregorianCalendar.getInstance();//Gestionar calendario actual
         
         SimpleDateFormat format = new SimpleDateFormat("d/M/yyyy");
@@ -41,8 +52,8 @@
         conexion =DriverManager.getConnection(ruta,user,clave);
         Sentencias = conexion.createStatement();
         //out.println(Fecha_actual);
-        tabla = Sentencias.executeQuery("SELECT `Equipo`,`Fecha_Revision` FROM filtro where `Fecha_Revision`='"+Fecha_actual+"'");
-         
+        //tabla = Sentencias.executeQuery("SELECT `Equipo`,`Fecha_Revision` FROM filtro where `Fecha_Revision`='"+Fecha_actual+"'");
+         tabla = Sentencias.executeQuery("SELECT `Equipo`,`Fecha_Revision` FROM filtro where `Fecha_Revision`='"+Fecha_actual+"'");
         /*tabla.next();
          * out.println(tabla.getString("Fecha_Revision"));
          */
@@ -74,16 +85,16 @@
         if(Fecha_base.equals(Fecha_actual)){
             HttpSession sesion = request.getSession();
             Date acceso = new Date(sesion.getLastAccessedTime());
-            //out.println("Último acceso: " + acceso + "<br>");
-            SimpleDateFormat format1 = new SimpleDateFormat(" d M yyyy H mm");
+           // out.println("Ãšltimo acceso: " + acceso + "<br>");
+            SimpleDateFormat format1 = new SimpleDateFormat(" d M yyyy H ");
             String Fecha_acceso = format1.format(acceso);
             //out.println("<br>" + Fecha_acceso);
             
             Date actual = new Date();
-           // out.println("<br>Último actual: " + actual + "<br>");
-            SimpleDateFormat format3 = new SimpleDateFormat(" d M yyyy H mm");
+           // out.println("<br>Ãšltimo actual: " + actual + "<br>");
+            SimpleDateFormat format3 = new SimpleDateFormat(" d M yyyy H ");
             String Fecha_ahora = format3.format(actual);
-           // out.println("<br>" + Fecha_ahora);
+            //out.println("<br>" + Fecha_ahora);
             
             if(Fecha_ahora.equals(Fecha_acceso)){
             //if(actual.equals(acceso)){
@@ -100,5 +111,4 @@
         }
     %>    
     
-  </body>
 </html>

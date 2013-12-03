@@ -47,7 +47,8 @@
             <li><a href="CorrelativoProgramacionLocalServlet">Registrar Programacion Local</a></li>
             <li><a href="ConsultarProgramacionLocal.jsp">Consultar Programaciones Locales</a></li>
             <li><a href="ProgramacionesExternas.jsp">Programaciones Externas</a></li>
-            <li><a href="HojadeRepuesto.jsp">Programacion de Mantenimiento</a></li>
+            <li><a href="Estado.jsp">Programacion de Mantenimiento</a></li>
+            <li><a href="RepMantenimiento.jsp">Reporte de Mantenimiento</a></li>
         </ul>
       </li>
       

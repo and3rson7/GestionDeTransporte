@@ -45,7 +45,8 @@
                                 <option value="1">Administrador</option>
                                 <option value="2">Gerente</option>
                                 <option value="3">SubGerente</option>
-                                <option value="4">Motorista</option>
+                                <option value="4">Jefe de Taller</option>
+                                <option value="5">Motorista</option>
                             </select>
                         </div>
                     </div>

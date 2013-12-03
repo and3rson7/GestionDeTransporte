@@ -1,3 +1,11 @@
+<%-- 
+    Document   : Chekeando
+    Created on : 12-02-2013, 06:35:53 PM
+    Author     : VICTOR
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement"%>
@@ -7,21 +15,26 @@
 
 <%@ page import="sv.edu.ues.dsi215.login.dominio.*" %>
 <%@ page import="sv.edu.ues.dsi215.login.negocio.*" %>
-
+<%@ page session="true" %>
+<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 <%
+    request.getSession();
+    String username =session.getAttribute("usuario").toString();
+    
+    //session.getAttribute("rol");
+    
+     //String username="";
+          out.println(username);
+        
     try {
+ 
         Conexion prueba = new Conexion();
         Connection connection = null;
         ResultSet rs = null;
         PreparedStatement pst = null;
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        CtrlLogin user = new CtrlLogin();
-        user.iniciausername(username, password); //devuelve el usuario
-        String pass = user.iniciapassword(password); //encripta clave y devuelve clave encriptada
-        
+        //String username = request.getParameter("username");
+         
         connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
         
         if(!connection.isClosed()){
@@ -38,9 +51,9 @@
             while ((rs.next()) && encontrado != 1) {
                 ni = rs.getInt(1);
                 usern = rs.getString("usuario");
-                passw = rs.getString("contraseña");
+              //  passw = rs.getString("contraseÃ±a");
                 
-                if (username.equals(usern) && pass.equals(passw)) {
+                if (username.equals(usern)) {
                     encontrado = 1;
                     Nivel = ni;
                 } else {
@@ -49,6 +62,7 @@
             }
             
             if (encontrado == 1) {
+                
                 session.setAttribute("usuario", username);
                 
                 if (Nivel == 1) {
@@ -68,7 +82,7 @@
                                 response.sendRedirect("MenuMantenimiento.jsp");
                             }
                             else{
-                            if (Nivel == 5) {
+                             if (Nivel == 5) {
                                 session.setAttribute("rol", "Motorista");
                                 response.sendRedirect("vistaMotorista.jsp");
                             }
@@ -95,12 +109,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Iniciar Sesión</title>
+    <title>Iniciar SesiÃ³n</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
       <script type="text/javascript" >
-          alert("El nombre de usuario o la contraseña introducidos no son correctos");
+        //  alert("El nombre de usuario o la contraseÃ±a introducidos no son correctos");
       </script>
   </body>
 </html>

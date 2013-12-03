@@ -16,27 +16,39 @@
 <%@ page import="sv.edu.ues.dsi215.login.dominio.*" %>
 
 <%
+    
+     String sql = "";
 
+            //String id_unidad = unidad.getId_unidad();
+            int idunidad =Integer.parseInt(request.getParameter("idunidad")) ;
+            String Aceite =request.getParameter("Aceite") ;
+           // String Aire = request.getParameter("Aire");
+            String Gasolina =request.getParameter("Gasolina");
+            String Diesel = request.getParameter("Diesel");
+            String Estado=request.getParameter("Estado");
+            String Codigo_Aceite=request.getParameter("Codigo_Aceite");
+            String observaciones=request.getParameter("observaciones");
+              Calendar c1 = GregorianCalendar.getInstance();//Gestionar calendario actual
+
+            String pHost = "localhost:3306";
+            String pUser = "root";
+            String pPassword = "";
+           
+
+
+SimpleDateFormat format = new SimpleDateFormat("d/M/yyyy");
+
+c1.add(Calendar.MONTH, 3);
+
+String Fecha_actual=format.format(c1.getTime());//Pasando a String fecha actual
+ 
     try {
             Conexion prueba = new Conexion();
             Connection connection = null;
             ResultSet rs = null;
             PreparedStatement pst = null;
 
-            String pHost = "localhost:3306";
-            String pUser = "root";
-            String pPassword = "";
-            String sql = "";
-
-            //String id_unidad = unidad.getId_unidad();
-            int idunidad =Integer.parseInt(request.getParameter("idunidad")) ;
-            String Aceite =request.getParameter("Aceite") ;
-            String Aire = request.getParameter("Aire");
-            String Combustible =request.getParameter("Combustible");
-            String Diesel = request.getParameter("Diesel");
-            String Estado=request.getParameter("Estado");
-            String Codigo_Aceite=request.getParameter("Codigo_Aceite");
-        
+           
             
             connection = prueba.conectar(pHost, pUser, pPassword);
             out.print(Diesel);
@@ -45,32 +57,16 @@
                  out.print(Diesel);
     %>
 
-    <%       String e="";
-                 
-                 Calendar c1 = GregorianCalendar.getInstance();//Gestionar calendario actual
-
-
-
-SimpleDateFormat format = new SimpleDateFormat("d/M/yyyy");
-
-c1.add(Calendar.MONTH, 3);
-
-//out.println("Fecha Formateada: "+format.format(c1.getTime()));//Fecha actual formateada
-
-String Fecha_actual=format.format(c1.getTime());//Pasando a String fecha actual
- 
-            
+    <%                  
+                        
             sql = "UPDATE filtro SET " + "Equipo=" + idunidad + ",Aceite='" + Aceite
-                    + "',Aire='" + Aire + "',Combustible='" + Combustible + "',Diesel='"
-                    + Diesel  +"',Estado='"+Estado+"',Fecha_Revision='"+Fecha_actual+"',Codigo_Aceite='"+Codigo_Aceite+ "' WHERE Equipo=" + request.getParameter("idunidad") ;
+                    + "',Gasolina='" + Gasolina + "',Diesel='"
+                    + Diesel  +"',Estado='"+Estado+"',Fecha_Revision='"+Fecha_actual+"',Codigo_Aceite='"+Codigo_Aceite+"',Observaciones='"+observaciones+ "' WHERE Equipo=" + request.getParameter("idunidad") ;
         pst = connection.prepareStatement(sql);
-        
-         
-        //out.println(sql);
-        
+           
         pst.execute();
         connection.close();
-        response.sendRedirect("HojadeRepuesto.jsp");
+        response.sendRedirect("CambioAceite.jsp");
 
     } catch (Exception ex) {
     %>
@@ -79,9 +75,44 @@ String Fecha_actual=format.format(c1.getTime());//Pasando a String fecha actual
             out.println("Unable to connect to database.");
             out.println("Error Message: " + ex.getMessage().toString());
         }
-        //pageContext.include("");
+       
     %>
-<!DOCTYPE html>
+
+    
+<%
+   try {
+            Conexion prueba = new Conexion();
+            Connection connection = null;
+            ResultSet rs = null;
+            PreparedStatement pst = null;
+
+            connection = prueba.conectar(pHost, pUser, pPassword);
+            out.print(Diesel);
+            if (!connection.isClosed())
+                
+                 out.print(Diesel);
+    %>
+
+    <%                   
+        
+         sql="INSERT INTO `historialfiltro`(`Equipo`, `Aceite`, `Gasolina`, `Diesel`, `Codigo_Aceite`, `Estado`, `Fecha_Revision`, `Observaciones`) VALUES (" + idunidad +",'"+Aceite+"','"+Gasolina+"','"+Diesel+"','"+Codigo_Aceite +"','"+Estado+"','"+Fecha_actual+"','"+observaciones+"')";
+         pst = connection.prepareStatement(sql); 
+       
+        
+        pst.execute();
+        connection.close();
+        response.sendRedirect("CambioAceite.jsp");
+
+    } catch (Exception ex) {
+    %>
+
+    <%
+            out.println("Unable to connect to database.");
+            out.println("Error Message: " + ex.getMessage().toString());
+        }
+       
+    %>
+    <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
