@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
+<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 
 <!DOCTYPE html>
 <html>

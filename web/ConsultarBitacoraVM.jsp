@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="sv.edu.ues.dsi215.login.dominio.*" %>
 <%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
+<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +16,7 @@
         <link rel="stylesheet" href="estilos/table-style.css">
         <title>Consultar Bitacoras</title>
     </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">        
+    <body>        
             <%@ include file="WEB-INF/jspf/menu-motorista.jspf" %>
         <%
 

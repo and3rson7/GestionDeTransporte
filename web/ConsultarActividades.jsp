@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 <!DOCTYPE html>
 <html>
     <head>

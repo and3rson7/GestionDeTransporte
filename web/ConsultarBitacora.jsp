@@ -9,6 +9,7 @@
 <%@ page import="java.io.*,java.util.*,java.net.*,java.sql.*" %>
 <%@ page import="sv.edu.ues.dsi215.login.dominio.ConsultaBitacorasCombustible" %>
 <%@ page import="sv.edu.ues.dsi215.login.dominio.BitacoraCombustible" %>
+<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
 
 <!DOCTYPE html>
 <html>

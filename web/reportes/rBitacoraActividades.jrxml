@@ -79,14 +79,14 @@ ORDER BY
 				<text><![CDATA[Mes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000" uuid="239df628-885c-4799-b898-6781e346087f"/>
+				<reportElement style="Column header" x="99" y="0" width="71" height="18" forecolor="#000000" uuid="239df628-885c-4799-b898-6781e346087f"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Equipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000" uuid="c4690ecf-ebaf-45cf-b96d-242d599c2b09"/>
+				<reportElement style="Column header" x="186" y="0" width="111" height="18" forecolor="#000000" uuid="c4690ecf-ebaf-45cf-b96d-242d599c2b09"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
