@@ -35,6 +35,8 @@
             <li><a href="CorrelativoBitacoraActividades">Bitacora Actividades</a></li>
             <li><a href="ConsultarBitacora.jsp">Consultar Bitacoras</a></li>
             <li><a href="CodigoActividad">Registrar Actividad</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="repBitacoraActividades.jsp">Reporte de Actividades</a></li>
         </ul>
       </li>
       
