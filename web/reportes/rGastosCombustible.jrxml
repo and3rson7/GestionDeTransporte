@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3996ee57-e602-4b2e-a83e-df0af01b9531">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="845"/>
+	<property name="ireport.y" value="48"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="fecha_inicial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_final" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SUM(detallebitacoracombustible.`valor_total`) AS detallebitacoracombustible_valor_total,
+     bitacoracombustible.`fecha` AS bitacoracombustible_fecha,
+     detallebitacoracombustible.`vale` AS detallebitacoracombustible_vale,
+     detallebitacoracombustible.`placa` AS detallebitacoracombustible_placa,
+     detallebitacoracombustible.`num_equipo` AS detallebitacoracombustible_num_equipo,
+     detallebitacoracombustible.`tipo_combustible` AS detallebitacoracombustible_tipo_combustible,
+     detallebitacoracombustible.`correlativo` AS detallebitacoracombustible_correlativo,
+     bitacoracombustible.`correlativo` AS bitacoracombustible_correlativo,
+     SUM(detallebitacoracombustible.`total_galones`) AS detallebitacoracombustible_total_galones
+FROM
+     `bitacoracombustible` bitacoracombustible INNER JOIN `detallebitacoracombustible` detallebitacoracombustible ON bitacoracombustible.`correlativo` = detallebitacoracombustible.`correlativo`
+WHERE
+     bitacoracombustible.`fecha` >= $P{fecha_inicial}
+ AND bitacoracombustible.`fecha` <= $P{fecha_final}
+GROUP BY
+     detallebitacoracombustible.`num_equipo`]]>
+	</queryString>
+	<field name="detallebitacoracombustible_valor_total" class="java.math.BigDecimal"/>
+	<field name="bitacoracombustible_fecha" class="java.lang.String"/>
+	<field name="detallebitacoracombustible_vale" class="java.lang.String"/>
+	<field name="detallebitacoracombustible_placa" class="java.lang.String"/>
+	<field name="detallebitacoracombustible_num_equipo" class="java.lang.Integer"/>
+	<field name="detallebitacoracombustible_tipo_combustible" class="java.lang.String"/>
+	<field name="detallebitacoracombustible_correlativo" class="java.lang.String"/>
+	<field name="bitacoracombustible_correlativo" class="java.lang.String"/>
+	<field name="detallebitacoracombustible_total_galones" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="725" y="0" width="77" height="102" uuid="62d0a80a-dab4-4c8e-bdc1-97ec5614e469"/>
+				<imageExpression><![CDATA["newescudo.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#006699" uuid="b9becd7b-1c82-426a-ade6-7ac572692aec"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="721" height="66" uuid="9592596d-de31-455e-8c4f-afc2066475e8"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="40" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Alcaldía Municipal de Cuscatancingo]]></text>
+				</staticText>
+			</frame>
+			<textField>
+				<reportElement x="0" y="66" width="721" height="36" forecolor="#CCCCCC" uuid="85f3ada6-16df-4c44-94fa-54cc10003d1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte de Gastos de Combustible - Periodo del " + $P{fecha_inicial} + " al " + $P{fecha_final}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="159" height="18" forecolor="#000000" uuid="e909e318-2106-4da9-841f-4698f9643ae1"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="159" y="0" width="159" height="18" forecolor="#000000" uuid="a572462d-7631-4169-a0fc-ef4a0a00b1f9"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="0" width="159" height="18" forecolor="#000000" uuid="7ab7577d-6bb5-4e52-8c8d-f48686e9e5dd"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nº Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="477" y="0" width="159" height="18" forecolor="#000000" uuid="408b05a6-3922-4136-98d8-63d2be030491"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Galones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="636" y="0" width="159" height="18" forecolor="#000000" uuid="da1000ad-4e68-411c-977d-beb54550414a"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Valor Total $]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="17" width="802" height="1" uuid="19bd580f-82a9-4b69-8bf5-df441de7fe3d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="f4cb89d2-643c-442d-88d1-12f0479d1b45"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="159" height="18" uuid="cc7bba4f-b854-4a5a-95bb-6b44dd0b6371"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bitacoracombustible_fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="159" y="0" width="159" height="18" uuid="2e69f8f5-aae9-430a-89eb-710a052e313f"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{detallebitacoracombustible_placa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="477" y="0" width="159" height="18" uuid="04dfcbf0-37c9-4b7d-92f3-f61b375dc086"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{detallebitacoracombustible_total_galones}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="636" y="0" width="159" height="18" uuid="a0c90ebf-b27d-4852-8334-ff843c533b93"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{detallebitacoracombustible_valor_total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="318" y="0" width="159" height="18" uuid="0936deff-8130-46ef-ae93-cec12511036d"/>
+					<textElement textAlignment="Center">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{detallebitacoracombustible_num_equipo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="725e839c-48a0-4557-91bd-6600e635f6c4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#006699" uuid="cf1ea073-78a8-47c2-8d6d-7d43fe6f21d0"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="fe01100c-5860-4dd6-9cf3-2c05b175afb5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="d2520fdb-aa6d-488d-9902-50ffb04b4a87"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="dc001789-f3d4-4ea2-b594-10575c215fbe"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="200" splitType="Stretch">
+			<bar3DChart>
+				<chart isShowLegend="false">
+					<reportElement x="0" y="0" width="802" height="200" uuid="2740da39-7ecd-4d02-a256-745574344275"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{detallebitacoracombustible_num_equipo}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{detallebitacoracombustible_valor_total}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

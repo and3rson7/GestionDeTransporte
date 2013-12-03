@@ -7,20 +7,16 @@ package sv.edu.ues.dsi215.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sv.edu.ues.dsi215.login.dominio.Conexion;
-import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
  * @author anderson
  */
-public class RegistrarProgramacionController extends HttpServlet {
+public class EnviarFechasReporteGC extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -37,37 +33,13 @@ public class RegistrarProgramacionController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            Conexion prueba = new Conexion();
-            Connection connection;
-            //ResultSet rs;
-            PreparedStatement pst;
-            String sql = "";
+            String fecha_inicial = request.getParameter("fecha_inicial");
+            String fecha_final = request.getParameter("fecha_final");
             
-            String correlativo = request.getParameter("correlativo");
-            String unidades = request.getParameter("unidadesSelect");
-            String numequipo = request.getParameter("equiposSelect");
-            String motorista = request.getParameter("motoristasSelect");
-            String actividad = request.getParameter("descripcionesSelect");
-            String duracion = request.getParameter("horasSelect");
-            String hora = request.getParameter("horainicio");
-            String unidadreq = request.getParameter("requeridasSelect");
-            String fecharealizar = request.getParameter("fecharealizar");
-            String estado = "Programada";
+            request.getSession().setAttribute("fecha_inicial", fecha_inicial);
+            request.getSession().setAttribute("fecha_final", fecha_final);
             
-            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
-            if (!connection.isClosed()) {
-                sql = "INSERT INTO programacionlocal " + "VALUES" + " ('" + correlativo + "','" + motorista
-                        + "','" + unidades + "','" + numequipo + "','" + actividad + "','" + fecharealizar + "','" + hora
-                        + "','" + duracion + "','" + unidadreq + "','" + estado + "')";
-            }
-            
-            pst = connection.prepareStatement(sql);
-            //System.out.println(sql);
-            
-            pst.execute();
-            connection.close();
-            
-            response.sendRedirect("CorrelativoProgramacionLocalServlet");
+            response.sendRedirect("GastosCombustible.jsp");
         } catch(Exception e){
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));

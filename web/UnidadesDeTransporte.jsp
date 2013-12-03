@@ -30,7 +30,7 @@
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            File reportFile = new File(application.getRealPath("reportes\\UnidadesDeTransporte.jasper"));//your report_name.jasper file
+            File reportFile = new File(application.getRealPath("reportes\\rUnidadesDeTransporte.jasper"));//your report_name.jasper file
             Map parameters = new HashMap();
             byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, conn);
  

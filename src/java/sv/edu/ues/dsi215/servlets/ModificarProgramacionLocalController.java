@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sv.edu.ues.dsi215.login.dominio.Conexion;
+import sv.edu.ues.dsi215.login.dominio.Constantes;
 
 /**
  *
@@ -52,7 +53,7 @@ public class ModificarProgramacionLocalController extends HttpServlet {
             String estado = request.getParameter("estado");
 
              
-            connection = prueba.conectar(databaseConstants.host, databaseConstants.user, databaseConstants.password);
+            connection = prueba.conectar(Constantes.pHost, Constantes.pUser, Constantes.pPassword);
             if (!connection.isClosed()) {
                 sql = "UPDATE programacionlocal SET " + "motorista='" + motorista + "',unidad='" + unidad
                     + "',numequipo='" + numequipo + "',actividad='" + actividad + "',fechaactividad='"

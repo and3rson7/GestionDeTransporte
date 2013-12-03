@@ -30,8 +30,12 @@
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            File reportFile = new File(application.getRealPath("reportes\\GastosCombustible.jasper"));//your report_name.jasper file
+            File reportFile = new File(application.getRealPath("reportes\\rGastosCombustible.jasper"));//your report_name.jasper file
             Map parameters = new HashMap();
+            
+            parameters.put("fecha_inicial", request.getSession().getAttribute("fecha_inicial"));
+            parameters.put("fecha_final", request.getSession().getAttribute("fecha_final"));
+            
             byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, conn);
  
             response.setContentType("application/pdf");

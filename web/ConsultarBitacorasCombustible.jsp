@@ -17,6 +17,8 @@
     
     <%@ include file="WEB-INF/jspf/datatable-bitacoracombustible.jspf" %>
     
+    <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+    <link rel="stylesheet" href="jquery-ui/css/cupertino/jquery-ui-1.10.3.custom.css">
   </head>
   <body>
     <div class="container">
@@ -67,5 +69,39 @@
               </div>
           </div>
       </div>
+      <% if(request.getSession().getAttribute("rol").equals("Administrador")){ %>
+      <div class="container">
+          <div class="panel panel-info">
+              <!-- Default panel contents -->
+              <div class="panel-heading" style="text-align: center;">Reporte de Gastos de Combustible</div>
+              <div class="panel-body" style="text-align: center;">
+                  <form class="form-inline" role="form" method="post">
+                      <label for="fecha_inicial">Fecha Incial:</label>
+                      <input type="text" name="fecha_inicial" id="fecha_inicial" class="form-control" style="width: 100px; margin-left: 10px; margin-right: 10px;" required />
+                      
+                      <label for="fecha_final" style="margin-left: 20px;">Fecha Final:</label>
+                      <input type="text" name="fecha_final" id="fecha_final" class="form-control" style="width: 100px; margin-left: 10px; margin-right: 10px;" required />
+
+                      <input type="submit" style="margin-left: 20px;" value="Generar Reporte >>" class="btn btn-primary" onclick="form.action='EnviarFechasReporteGC';" />
+                  </form>
+              </div>
+          </div>
+      </div>
+      <script>
+        $(function() {
+          $("#fecha_inicial").datepicker({
+            showOn: "button",
+            buttonImage: "jquery-ui/calendar.gif",
+            buttonImageOnly: true,
+          });
+          
+          $("#fecha_final").datepicker({
+            showOn: "button",
+            buttonImage: "jquery-ui/calendar.gif",
+            buttonImageOnly: true,
+          });
+        });
+    </script>
+    <% } %>
   </body>
 </html>

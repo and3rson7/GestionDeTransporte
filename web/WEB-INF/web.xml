@@ -100,6 +100,10 @@
         <servlet-name>ModificarProgramacionLocalController</servlet-name>
         <servlet-class>sv.edu.ues.dsi215.servlets.ModificarProgramacionLocalController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviarFechasReporteGC</servlet-name>
+        <servlet-class>sv.edu.ues.dsi215.servlets.EnviarFechasReporteGC</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarUnidadController</servlet-name>
         <url-pattern>/RegistrarUnidadController</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>ModificarProgramacionLocalController</servlet-name>
         <url-pattern>/ModificarProgramacionLocalController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviarFechasReporteGC</servlet-name>
+        <url-pattern>/EnviarFechasReporteGC</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

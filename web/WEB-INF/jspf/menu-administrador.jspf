@@ -54,7 +54,6 @@
         <ul class="dropdown-menu">
             <li><a href="CorrelativoBitacoraCombustibleServlet">Registrar Bitacora</a></li>
             <li><a href="ConsultarBitacorasCombustible.jsp">Consultar Bitacoras</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="GastosCombustible.jsp">Reporte Gastos de Combustible</a></li>
         </ul>
       </li>
       
@@ -73,7 +72,7 @@
             <li><a href="ControladorConsultaUnidad.jsp">Consultar Unidades</a></li>
             
             <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="UnidadesDeTransporte.jsp">Reporte Unidades de Transporte</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="UnidadesDeTransporte.jsp">Reporte de Unidades</a></li>
         </ul>
       </li>
       
