@@ -3,7 +3,7 @@
 <%@page import="java.util.Calendar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 	
-<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
+
 
 <!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,6 +13,7 @@
 
 
 <title>Solicitud de Transporte </title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         
 	<script type="text/javascript" src="tcal.js"></script>
         <script type="text/javascript">
@@ -87,7 +88,16 @@
      else{
          dif_dias=acomodar_dias;
         }
-    
+    if(dif_dias<=3){
+        alert("Lo sentimos, NO es posible enviar una solicitud con solo "+dif_dias+" dias para realizarse...\nLe sugerimos presentarse con el encargado de transporte");
+        document.form1.dia.focus()
+        return 0;
+    }        
+    if(fecha1==dia1){
+         alert("Lo sentimos, NO es posible enviar una solicitud para realizarse el mismo dia...\nLe sugerimos presentarse con el encargado de transporte");
+         document.form1.dia.focus()
+         return 0;
+        }
     if(Date.parse(fecha1)>Date.parse(dia1)){
          alert("La fecha de realizacion de la actividad no puede ser menor o igual a la fecha actual");
          document.form1.dia.focus()
@@ -166,12 +176,8 @@ document.form1.reset()//se borrarán los campos del formulario
 </head>
 
 <body>
-            <% if(request.getSession().getAttribute("rol").equals("Motorista")){ %>
-        <%@ include file="WEB-INF/jspf/menu-subgerente.jspf" %>
-    <% }else if(request.getSession().getAttribute("rol").equals("Administrador")){ %>
-        <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
-    <% } %>
-          
+       
+            
     
         <% 
         Calendar c = new GregorianCalendar();
@@ -260,7 +266,7 @@ document.form1.reset()//se borrarán los campos del formulario
     <tr> 
         <th width="264" scope="row"><div align="left">Dia a realizarse</div></th>
         <td> 
-        <div><input name="dia" type="date" value="" /></div>
+        <div><input name="dia" type="date" /></div>
         
        </td>
         <td>
@@ -308,6 +314,7 @@ document.form1.reset()//se borrarán los campos del formulario
     <td width="64"><input type="button" class="btn btn-success" value="Limpiar" align="center" onClick="avisoreset()" /></td>
     </tr>
 </table>
+      <center><br><br><a href="index.jsp">REGRESAR</a><br><br></center>
      <br><br><br> 
 </body> 
       

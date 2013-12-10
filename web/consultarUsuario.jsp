@@ -1,14 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="conexion.jsp" %>
 
-<%@ include file="WEB-INF/jspf/control-sesion.jspf" %>
+
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Solicitudes de Transporte</title>
-        
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="tcal.js"></script>
         <script type="text/javascript">
         function checkAddress()
@@ -22,7 +25,7 @@
         <link rel="stylesheet" href="estilos/estilos.css">
     </head>
     <body>
-               <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %> 
+               
               
      <form name="form1" method="post" align="center" action="">
          <td colspan="3" bgcolor="red"><div align="center">
@@ -58,7 +61,7 @@
         
          %>
          
-         <td><input type="checkbox" name="checkBoxes" value="<%=i%>"/></td> 
+         
          <%
         i++;
           }
@@ -74,25 +77,9 @@
   
   %>
          
-                        <%if(request.getParameter("checkBoxes") != null){%>
-			<%! String[] ItemNames;%>
-			<%
-				ItemNames = request.getParameterValues("checkBoxes");
-				for(int i = 0; i < ItemNames.length; i++){
-			%>
-				
-				<%= ItemNames[i] %>
-                                <% 
-                                String apro="Aprobada";
-                                String estad="update solicitudtransporte set estado='"+apro+"' where idsolicitud = "+ItemNames[i]+";";
-                                sql.executeUpdate(estad);
-                             
-                                %>
-				
-			<%}%>
-		<%}%>
-  <br><br><a href="vistaAdministrador.jsp">REGRESAR</a><br><br>
-  <td width="67"><input type="submit" class="btn btn-success" value="Guardar Cambios" align="center" />
+                        
+  <br><br><a href="index.jsp">REGRESAR</a><br><br>
+  
   </form>
   <br><br><br>
     </body>

@@ -10,6 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Solicitudes de Transporte</title>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
         <link rel="stylesheet" href="estilos/estilosfull.css">
         <script type="text/javascript">
           
@@ -35,7 +39,7 @@ function Solo_Numerico(variable){
 .fondo-texto {font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
 </style>
     </head>
-    <body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">
+    <body>
     <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
 <br><center><p style="font-size: 25px"><strong>ACTUALIZAR SOLICITUDES DE TRANSPORTE</strong></p></center><br><br>
  
@@ -49,11 +53,11 @@ function Solo_Numerico(variable){
         
         
  <form name="formactulizar" method="post" align="center" action="Updat.jsp">
-      Digite el ID de la solicitud:<input type="text" name="texto" onkeyUp="return ValNumero(this);">
+     <b>Digite el ID de la solicitud:</b><input type="text" name="texto" onkeyUp="return ValNumero(this);">
             
-           <input type="submit" value="Modificar" />
+           <input type="submit" value="Modificar" class="btn btn-success"/>
         <%
-        out.print("<table bgcolor=04F7EF border=\"1\" align=\"center\"><tr><td bgcolor=#FFFF99>ID</td><td bgcolor=#FFFF99>De</td><td bgcolor=#FFFF99>Para</td><td bgcolor=#FFFF99>Fecha de Solicitud</td><td bgcolor=#FFFF99>Actividad</td><td bgcolor=#FFFF99>Hora</td><td bgcolor=#FFFF99>Dia a realizarse</td><td bgcolor=#FFFF99>Lugar a realizarse</td></tr>"); 
+        out.print("<table border=\"1\" align=\"center\"><tr><td bgcolor=2E9AFE>ID</td><td bgcolor=2E9AFE>De</td><td bgcolor=2E9AFE>Para</td><td bgcolor=2E9AFE>Fecha de Solicitud</td><td bgcolor=2E9AFE>Actividad</td><td bgcolor=2E9AFE>Hora</td><td bgcolor=2E9AFE>Dia a realizarse</td><td bgcolor=2E9AFE>Lugar a realizarse</td><td bgcolor=2E9AFE>Tipo Unidad</td><td bgcolor=2E9AFE>Duracion</td></tr>"); 
         %>
                 
         <%
@@ -69,6 +73,8 @@ function Solo_Numerico(variable){
          out.println("<td>"+rs.getObject("Hora")+"</td>");           
          out.println("<td>"+rs.getObject("diarealizar")+"</td>");
          out.println("<td>"+rs.getObject("DireccionLugar")+"</td>");
+         out.println("<td>"+rs.getObject("tipoUnidad")+"</td>");
+         out.println("<td>"+rs.getObject("tiempoAprox")+"</td>");
          out.println("</tr>");
       }
       out.println("</table>");

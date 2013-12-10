@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23a5c6ee-0d92-44ca-9ef9-18c14ad6c4d1">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="301"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *FROM programacionlocal]]>
+	</queryString>
+	<field name="correlativo" class="java.lang.String"/>
+	<field name="motorista" class="java.lang.String"/>
+	<field name="unidad" class="java.lang.String"/>
+	<field name="numequipo" class="java.lang.String"/>
+	<field name="Actividad" class="java.lang.String"/>
+	<field name="FechaActividad" class="java.lang.String"/>
+	<field name="HoraInicio" class="java.lang.String"/>
+	<field name="DuracionActividad" class="java.lang.String"/>
+	<field name="unidadreq" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<image>
+				<reportElement uuid="7cb8b966-6329-4e0d-b703-0c230889233d" x="398" y="0" width="179" height="64"/>
+				<imageExpression><![CDATA["newescudo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="58eef22b-ce61-403a-a27a-84523df42469" style="Title" x="0" y="16" width="419" height="17"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[                                                  Alcaldia Municipal de Cuscatancingo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ddab152d-a1f7-4f50-9d70-e227a3dea79f" style="Title" x="-1" y="0" width="556" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[                                              Departamento de Transporte                                                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="12d3d1ff-3251-4156-ad5b-3a232f1ea934" style="Title" x="0" y="33" width="395" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[        Para:  Consejo Municipal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="441be6fa-e750-4adb-a488-27c7eb3097a7" style="Title" x="0" y="54" width="395" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[        De :    Nelson Marroquin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ae1cc54b-d67b-426c-ab48-4313ff513011" style="Title" x="-1" y="70" width="392" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[       Asunto: Reporte de Actividades Locales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="67454d34-7256-463f-a848-8503d6b03053" style="Title" x="2" y="86" width="395" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[       Fecha : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="fd6b4ee4-eb77-47fb-aa28-3db3532e56e8" x="62" y="86" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7da95e84-b6ea-4d0f-a64a-3571626a7ed6" style="Column header" x="58" y="25" width="52" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Motorista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="59f17566-a25d-46a8-b7f7-3406ef27a559" style="Column header" x="228" y="25" width="71" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de la Actividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="769751c8-4ea0-431d-ad1f-eb93bcdfb458" style="Column header" x="299" y="25" width="49" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora de Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="308495c9-50f4-4ba6-a875-441b556ac210" style="Column header" x="348" y="25" width="50" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[N° de Equipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e079f803-41eb-45ab-9f24-0abe60a78fe2" style="Column header" x="398" y="25" width="60" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a1365bab-8695-4d68-a3fa-028e0b75f6ce" style="Column header" x="458" y="25" width="77" height="25"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Duracion Estimada]]></text>
+			</staticText>
+			<elementGroup>
+				<staticText>
+					<reportElement uuid="82526725-10c2-42ec-a90d-6ea395234e08" style="Column header" x="2" y="25" width="56" height="25"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Correlativo]]></text>
+				</staticText>
+			</elementGroup>
+			<elementGroup>
+				<staticText>
+					<reportElement uuid="5800cc98-1a9b-44e0-af85-4018e1009fb6" style="Column header" x="110" y="25" width="118" height="25"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Actividad]]></text>
+				</staticText>
+			</elementGroup>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement uuid="39b38e56-11c7-4434-b738-cb029adc9697" style="Detail" x="2" y="0" width="56" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{correlativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4f24d171-3cfb-4b21-9ef8-419799f68ff1" style="Detail" x="58" y="0" width="52" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motorista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac17474b-0438-40d7-9481-c68ee9d250dd" style="Detail" x="398" y="0" width="60" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="479dd79b-0914-4857-b9ea-6a6a0d5fd551" style="Detail" x="348" y="0" width="50" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numequipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3142d000-e41c-4b34-b98c-be18ddfb130e" style="Detail" x="110" y="0" width="118" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Actividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f011ac68-c804-422d-8b34-b0344a12db2c" style="Detail" x="228" y="0" width="71" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FechaActividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f97028a3-db4b-4c88-a2f2-6310863d8d45" style="Detail" x="299" y="0" width="49" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoraInicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0a24ba50-eea4-4bab-9ad2-b6b90ff7b256" style="Detail" x="458" y="0" width="77" height="38"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DuracionActividad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e61dee06-774d-4f83-aed6-7ae42f0abf2b" x="10" y="30" width="176" height="20"/>
+				<textElement/>
+				<text><![CDATA[Jefe de Transporte: Nelson Marroquin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad44e1bb-65e3-4933-bc28-1a1bdefee7ca" x="10" y="38" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="21714544-ad0b-4b9e-8b1b-86dba00975b0" x="10" y="50" width="152" height="20"/>
+				<textElement/>
+				<text><![CDATA[Reporte de Actividades Locales]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

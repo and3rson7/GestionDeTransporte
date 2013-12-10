@@ -48,7 +48,9 @@
             <li><a href="ConsultarProgramacionLocal.jsp">Consultar Programaciones Locales</a></li>
             <li><a href="ProgramacionesExternas.jsp">Programaciones Externas</a></li>
             <li><a href="Estado.jsp">Programacion de Mantenimiento</a></li>
+            <li role="presentation" class="divider"></li>
             <li><a href="RepMantenimiento.jsp">Reporte de Mantenimiento</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="RepProgramacionLocal.jsp">Reporte Programaciones locales</a></li>
         </ul>
       </li>
       
@@ -86,6 +88,8 @@
             <li><a href="consultar.jsp">Consultar Solicitud</a></li>
             <li><a href="eliminar.jsp">Eliminar Solicitud</a></li>
             <li><a href="actualizar.jsp">Modificar Solicitud</a></li>
+            <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="RepSolicitudes.jsp">Reporte de Solicitudes</a></li>
         </ul>
       </li>
       

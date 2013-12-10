@@ -7,6 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Solicitudes de Transporte</title>
+        
         <link rel="stylesheet" href="estilos/estilosfull.css">
         <script type="text/javascript">
         function Solo_Numerico(variable){
@@ -53,9 +54,9 @@
         %>
  <form name="frmeliminar" method="post" align="center" action="Delete.jsp" >
              
-           Digite el ID de la solicitud:<input type="text" name="texto" onkeyUp="return ValNumero(this);">
+     <b>Digite el ID de la solicitud:</b><input width="40" type="text" name="texto" onkeyUp="return ValNumero(this);">
            
-           <input type="submit" value="Eliminar" onclick="return confirmar('¿Está seguro que desea eliminar la solicitud?')"/>
+           <input type="submit" value="Eliminar" class="btn btn-success" onclick="return confirmar('¿Está seguro que desea eliminar la solicitud?')"/>
            
         </form>
         
@@ -64,7 +65,7 @@
             
         <div id="iframe" align="center">
         <%
-        out.print("<table bgcolor=04F7EF border=\"1\" align=\"center\"><tr><td bgcolor=#FFFF99>ID</td><td bgcolor=#FFFF99>De</td><td bgcolor=#FFFF99>Para</td><td bgcolor=#FFFF99>Fecha de Solicitud</td><td bgcolor=#FFFF99>Actividad</td><td bgcolor=#FFFF99>Hora</td><td bgcolor=#FFFF99>Dia a realizarse</td><td bgcolor=#FFFF99>Lugar a realizarse</td></tr>"); 
+        out.print("<table border=\"1\" align=\"center\"><tr><td bgcolor=2E9AFE>ID</td><td bgcolor=2E9AFE>De</td><td bgcolor=2E9AFE>Para</td><td bgcolor=2E9AFE>Fecha de Solicitud</td><td bgcolor=2E9AFE>Actividad</td><td bgcolor=2E9AFE>Hora</td><td bgcolor=2E9AFE>Dia a realizarse</td><td bgcolor=2E9AFE>Lugar a realizarse</td></tr>"); 
         %>
         </div>
         

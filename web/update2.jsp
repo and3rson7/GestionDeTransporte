@@ -23,13 +23,12 @@
          String Actividad=request.getParameter("actividad");
          String Dia=request.getParameter("dia");
          String Hora=request.getParameter("hora");
-         String Minutos=request.getParameter("minutos");
-         String HoraMinutos=Hora+":"+Minutos;
          String Lugar=request.getParameter("lugar");
-                  
-         String qry="update solicitudtransporte set Solicitante= '"+De+ "',EncargadoTransporte='"+Para+"',FechaSolicitud='"+Fecha+"',Descripcion='"+Actividad+"',hora='"+HoraMinutos+"',diarealizar='"+Dia+"',DireccionLugar='"+Lugar+"' where idsolicitud = "+IDE+";";
+         String unidad=request.getParameter("tipoUnida");  
+         String duracion=request.getParameter("horaAprox");         
+         String qry="update solicitudtransporte set Solicitante= '"+De+ "',EncargadoTransporte='"+Para+"',FechaSolicitud='"+Fecha+"',Descripcion='"+Actividad+"',hora='"+Hora+"',diarealizar='"+Dia+"',DireccionLugar='"+Lugar+"',tipoUnidad='"+unidad+"',tiempoAprox='"+duracion+"' where idsolicitud = "+IDE+";";
            sql.executeUpdate(qry);
-           //out.print("Actualizacion Exitosa!!!!");
+           out.print("Actualizacion Exitosa!!!!");
            
         %>
         <br>

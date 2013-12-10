@@ -13,7 +13,11 @@
         <link rel="stylesheet" href="estilos/estilos-plantilla.css">
         <link rel="stylesheet" type="text/css" href="tcal.css" />
 	<script type="text/javascript" src="tcal.js"></script>
-        <script type="text/javascript">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+       <script type="text/javascript">
            function valida_envia(){
 
      //valido el tarjeta
@@ -62,26 +66,81 @@
        document.form1.hora.focus()
        return 0;
     }
-    if (document.form1.minutos.value==-1){
-       alert("Seleccione los minutos")
-       document.form1.minutos.focus()
+    if (document.form1.tipoUnidad.value==1){
+       alert("Seleccione El tipo de Unidad solicitada")
+       document.form1.tipoUnidad.focus()
        return 0;
     }
-     if (document.form1.hora.value<00||document.form1.hora.value>24){
-       alert("La hora debe estar entre 1 y 24")
-       document.form1.hora.focus()
+    if (document.form1.horaAprox.value.length==00){
+       alert("Digite la duracion aproximada de la actividad")
+       document.form1.horaAprox.focus()
        return 0;
     }
-    if (document.form1.minutos.value<-1||document.form1.minutos.value>59){
-       alert("Los minutos deben estar entre 0 y 59")
-       document.form1.minutos.focus()
-       return 0;
-    }
+    var dif_dias;
+    var fecha1=document.form1.fecha.value
+    var dia1=document.form1.dia.value
     
+    var dif_fecha =new Date(Date.parse(dia1)-Date.parse(fecha1)).toLocaleDateString();
+    var acomodar_dias=dif_fecha.toString().substring(0, 2);
+    var ultimoValor_dia=acomodar_dias.substring(1, 2);
+    if(ultimoValor_dia=='/'){
+        dif_dias=acomodar_dias.substring(0, 1);
+        }
+     else{
+         dif_dias=acomodar_dias;
+        }
+    if(dif_dias<=3){
+        alert("Lo sentimos, NO es posible enviar una solicitud con solo "+dif_dias+" dias para realizarse...\nLe sugerimos presentarse con el encargado de transporte");
+        document.form1.dia.focus()
+        return 0;
+    }        
+    if(fecha1==dia1){
+         alert("Lo sentimos, NO es posible enviar una solicitud para realizarse el mismo dia...\nLe sugerimos presentarse con el encargado de transporte");
+         document.form1.dia.focus()
+         return 0;
+        }
+    if(Date.parse(fecha1)>Date.parse(dia1)){
+         alert("La fecha de realizacion de la actividad no puede ser menor o igual a la fecha actual");
+         document.form1.dia.focus()
+         return 0;
+        }
+    
+      
    //el formulario se envia
     alert("La informacion esta siendo procesada, presione Aceptar para continuar");
     document.form1.submit();
 }
+function avisoreset()//Función
+{
+document.form1.reset()//se borrarán los campos del formulario
+}
+function Solo_Numerico(variable){
+        Numer=parseInt(variable);
+        if (isNaN(Numer)){
+            return "";
+        }
+        return Numer;
+    }
+    function ValNumero(Control){
+        Control.value=Solo_Numerico(Control.value);
+    }
+
+    
+
+function avisoreset()//Función
+{
+document.form1.reset()//se borrarán los campos del formulario
+}
+function Solo_Numerico(variable){
+        Numer=parseInt(variable);
+        if (isNaN(Numer)){
+            return "";
+        }
+        return Numer;
+    }
+    function ValNumero(Control){
+        Control.value=Solo_Numerico(Control.value);
+    }
 function avisoreset()//Función
 {
 document.form1.reset()//se borrarán los campos del formulario
@@ -101,7 +160,7 @@ function Solo_Numerico(variable){
 
 </head>
 
-<body style="height: 650px; background: linear-gradient(#D8D8D8, #39C, #39C)">
+<body>
             <%@ include file="WEB-INF/jspf/menu-administrador.jspf" %>
 
     
@@ -127,7 +186,7 @@ String id=request.getParameter("texto");
          try{
         
         ResultSet rs;
-        String con="select * from solicitudtransporte where idsolicitud="+id+";";
+        String con="select Solicitante,EncargadoTransporte,FechaSolicitud,Descripcion,Hora,diarealizar,DireccionLugar,tipoUnidad,tiempoAprox from solicitudtransporte where idsolicitud="+id+";";
         rs=sql.executeQuery(con);
        while (rs.next()){
                    
@@ -137,11 +196,12 @@ String id=request.getParameter("texto");
          Date fechaSol=rs.getDate("Fechasolicitud");
          String tipoActividad=rs.getString("Descripcion");
          Time horMin=rs.getTime("Hora");
-         String hor=horMin.toString().substring(0, 2); 
-         String min=horMin.toString().substring(3, 5); 
+         
                                         
          Date diaRealizar=rs.getDate("diarealizar");
          String lugarActividad=rs.getString("DireccionLugar");
+         String tipounidad=rs.getString("tipoUnidad");
+         String tiempoaprox=rs.getString("tiempoAprox");
           %> 
  <form name="form1" method="set" align="center" action="update2.jsp">     
                 
@@ -159,7 +219,7 @@ String id=request.getParameter("texto");
       <th width="227" scope="row"><div align="left">Para</div></th> 
       <td width="155">
         
-        <input type="text" name="para" value="<%= par %>">    
+        <input type="text" class="form-control" name="para" value="<%= par %>">    
         
       <td align="left">(Encargado de transporte)</td> 
       <td></td> 
@@ -167,21 +227,21 @@ String id=request.getParameter("texto");
     <tr>
       <th width="227" scope="row"><div align="left">De</div></th> 
       <td><label> 
-        <input type="text" name="de" value="<%= de %>"/> 
+        <input type="text" class="form-control" name="de" value="<%= de %>"/> 
       </label></td> 
       <td>&nbsp;</td> 
     </tr> 
     <tr>
       <th width="227" scope="row"><div align="left">Fecha de Solicitud</div></th> 
       <td>
-      <div><input name="fecha" type="text" class="tcal" readonly="readonly" value="<%= fechaSol %>"/></div> 
+      <div><input name="fecha" type="date" class="form-control" readonly="readonly" value="<%= fechaSol %>"/></div> 
       </td>
       
     </tr>
     <tr>
       <th width="227" scope="row"><div align="left">Transporte para la actividad de</div></th>
       <td><label>
-        <input type="text" name="actividad" value="<%= tipoActividad %>"/>
+        <input type="text" name="actividad" class="form-control" value="<%= tipoActividad %>"/>
       </label></td>
       
     </tr> 
@@ -192,20 +252,35 @@ String id=request.getParameter("texto");
        </td>
         <td>
       <label>Hora</label>
-      <input type="number" name="hora" min="00" max="24" value="<%= hor %>" contenteditable="false"/>
-      :<input type="number" name="minutos" min="00" max="59" value="<%= min %>" contenteditable="false"/><br /><br />
-        Formato de 24 horas(Horas:Minutos)</td>
+      <input type="time" name="hora" class="form-control" value="<%= horMin %>" contenteditable="false"/></td>
     </tr>
     <tr>
       <th width="227" scope="row"><div align="left">Lugar a realizarse</div></th>
       <td><label>
-        <input type="text" name="lugar" value="<%= lugarActividad %>" />
+        <input type="text" class="form-control" name="lugar" value="<%= lugarActividad %>" />
       </label></td>
       <td><label>
-        <input type="hidden" name="ide" value="<%= id %>" />
+        <input type="hidden" class="form-control" name="ide" value="<%= id %>" />
       </label></td>
      
     </tr> 
+      <tr>
+         <th width="264" height="48" scope="row"><div align="left">Tipo de Unidad Solicitada</div></th>
+         <td> <select class="form-control" name="tipoUnida" > 
+                 <option value="<%=tipounidad%>"><%=tipounidad%></option> 
+                 <option value="Pickhut" >Pickhut</option> 
+                 <option value="Camion" >Camion</option>
+                 <option value="Bus" >Bus</option> 
+                 <option value="Ambulancia" >Ambulancia</option> 
+                 <option value="Camion de Basura" >Camion de Basura</option> 
+            </select></td>
+        </tr>
+       <tr>
+         <th width="264" height="10" scope="row"><div align="left">Duracion Aproximada de la Actividad</div></th>
+         <td><input align="left" class="form-control" size="5" type="text" maxlength="1" name="horaAprox" value="<%=tiempoaprox%>"onkeypress="return soloNumeros(event)"/> 
+      <th width="194" height="10" scope="row"><div align="left">Horas</div></th> 
+            </td>
+        </tr>
         
    
     
@@ -226,10 +301,10 @@ String id=request.getParameter("texto");
   </table> 
     <br></br>
     <br></br>
-     
+     <center><input type="submit" class="btn btn-success" value="Guardar" align="center" onclick="valida_envia()"/></center>
 </form>
     
-  <center><input type="submit" value="Guardar" align="center" onclick="valida_envia()"/></center>
+  
 
       <% 
       }else{
@@ -242,5 +317,5 @@ String id=request.getParameter("texto");
 <br></br>
 <a href="actualizar.jsp" style="margin-left: 100px">Atras</a>
       
-</body> 
+</body>  
 </html> 
